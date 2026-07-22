@@ -6,9 +6,7 @@ import { locales } from '@/i18n';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-export function generateStaticParams() {
-  return locales.map(locale => ({ locale }));
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   return {

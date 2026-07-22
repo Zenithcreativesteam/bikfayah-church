@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Google Fonts ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ── Base ─────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-warm-white text-brown-deep font-sans antialiased;
+  }
+
+  /* RTL Arabic */
+  [dir="rtl"] body,
+  [dir="rtl"] * {
+    font-family: 'Amiri', serif;
+  }
+
+  [dir="rtl"] .font-sans {
+    font-family: 'Amiri', serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* ── Components ───────────────────────────────────────────── */
+@layer components {
+  /* Section containers */
+  .section-warm {
+    @apply bg-warm-white py-20 px-4;
+  }
+  .section-parchment {
+    @apply bg-parchment-light py-20 px-4;
+  }
+  .section-parchment-deep {
+    @apply bg-parchment py-20 px-4;
+  }
+
+  /* Container */
+  .container-church {
+    @apply max-w-6xl mx-auto;
+  }
+
+  /* Gold divider */
+  .gold-divider {
+    @apply w-24 h-0.5 mx-auto my-4;
+    background: linear-gradient(90deg, transparent, #B8860B, transparent);
+  }
+
+  /* Warm card */
+  .card-warm {
+    @apply bg-white rounded-2xl shadow-warm border border-gold-light p-6;
+  }
+
+  /* Gold label */
+  .label-gold {
+    @apply text-xs font-sans font-semibold uppercase tracking-widest text-gold;
+  }
+
+  /* Buttons */
+  .btn-gold {
+    @apply inline-flex items-center gap-2 bg-gold text-white font-sans font-medium 
+           px-6 py-3 rounded-full transition-all duration-200 
+           hover:bg-amber-700 hover:shadow-warm-md active:scale-95;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-gold text-gold font-sans font-medium 
+           px-6 py-3 rounded-full transition-all duration-200 
+           hover:bg-gold hover:text-white active:scale-95;
+  }
+
+  /* Sermon thumbnail placeholder */
+  .sermon-thumb {
+    @apply w-full aspect-video rounded-xl flex items-center justify-center;
+    background: linear-gradient(135deg, #FDF3DC 0%, #F0E4C0 100%);
+  }
+
+  /* Nav link underline animation */
+  .nav-link {
+    @apply relative text-brown-mid font-sans text-sm font-medium transition-colors duration-200 hover:text-brown-deep;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 w-0 h-0.5 bg-gold transition-all duration-300;
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+  .nav-link.active {
+    @apply text-brown-deep;
+  }
+
+  /* Verse block */
+  .verse-block {
+    @apply relative pl-6 py-4 my-6;
+    border-left: 3px solid #B8860B;
+    background: linear-gradient(to right, rgba(253,243,220,0.5), transparent);
+  }
+  [dir="rtl"] .verse-block {
+    @apply pl-0 pr-6;
+    border-left: none;
+    border-right: 3px solid #B8860B;
+    background: linear-gradient(to left, rgba(253,243,220,0.5), transparent);
+  }
+
+  /* Input styles */
+  .input-warm {
+    @apply w-full px-4 py-3 rounded-xl border border-gold-light bg-white 
+           text-brown-deep placeholder-brown-muted font-sans
+           focus:outline-none focus:ring-2 focus:ring-gold focus:ring-opacity-30 focus:border-gold
+           transition-all duration-200;
+  }
+
+  /* Timeline */
+  .timeline-line {
+    @apply absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2;
+    background: linear-gradient(to bottom, transparent, #B8860B 10%, #B8860B 90%, transparent);
+  }
+}
+
+/* ── Utilities ────────────────────────────────────────────── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .font-arabic {
+    font-family: 'Amiri', serif;
+  }
+  /* Marquee animation */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marquee-rtl {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50%); }
+  }
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+  [dir="rtl"] .animate-marquee {
+    animation: marquee-rtl 40s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}

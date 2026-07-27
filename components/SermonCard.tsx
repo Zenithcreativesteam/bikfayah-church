@@ -65,7 +65,7 @@ export default function SermonCard({ sermon, variant = 'grid' }: SermonCardProps
         <div className="p-8 flex flex-col justify-center">
           <p className="label-gold mb-2">{series}</p>
           <h3 className="font-serif text-2xl md:text-3xl text-brown-deep mb-3">{title}</h3>
-          <p className="text-brown-mid mb-2 text-sm">{speaker} · {formattedDate} · {sermon.duration} {tCommon('min')}</p>
+          <p className="text-brown-mid mb-2 text-sm">{speaker} · {formattedDate}{sermon.duration > 0 ? ` · ${sermon.duration} ${tCommon('min')}` : ''}</p>
           <p className="text-brown-mid leading-relaxed mb-6 line-clamp-3">{excerpt}</p>
           <div className="flex flex-wrap gap-2 mb-6">
             {sermon.tags.slice(0, 3).map(tag => (
@@ -133,7 +133,7 @@ export default function SermonCard({ sermon, variant = 'grid' }: SermonCardProps
         {title}
       </h3>
       <p className="text-brown-mid text-sm mb-3">
-        {speaker} · {sermon.duration} {tCommon('min')}
+        {speaker}{sermon.duration > 0 ? ` · ${sermon.duration} ${tCommon('min')}` : ''}
       </p>
       <p className="text-brown-mid text-sm leading-relaxed line-clamp-2 flex-1 mb-4">
         {excerpt}

@@ -15,16 +15,16 @@ const config: Config = {
         'parchment-light': '#F7F0E4',
         'honey-light': '#FDF3DC',
         'honey': '#F0E4C0',
-        // Text
-        'brown-deep': '#1C1208',
-        'brown-mid': '#4A3E30',
-        'brown-muted': '#7A6E60',
+        // Text (navy-based)
+        'brown-deep': '#0D1F3C',
+        'brown-mid': '#1E3A5F',
+        'brown-muted': '#5B7FA6',
         // Accent
         'gold': '#B8860B',
         'gold-light': 'rgba(184,134,11,0.15)',
-        // Hero
-        'hero-dark': '#2C1A08',
-        'hero-darker': '#3D2410',
+        // Hero / dark backgrounds (navy)
+        'hero-dark': '#0F2044',
+        'hero-darker': '#071529',
         // Navy blue palette
         'navy-deep': '#0F2044',
         'navy': '#1B3A6B',
@@ -38,14 +38,14 @@ const config: Config = {
         arabic: ['Amiri', 'serif'],
       },
       boxShadow: {
-        'warm-sm': '0 1px 4px rgba(28,18,8,0.06)',
-        'warm': '0 2px 12px rgba(28,18,8,0.07)',
-        'warm-md': '0 4px 24px rgba(28,18,8,0.10)',
-        'warm-lg': '0 8px 48px rgba(28,18,8,0.13)',
+        'warm-sm': '0 1px 4px rgba(13,31,60,0.07)',
+        'warm': '0 2px 12px rgba(13,31,60,0.09)',
+        'warm-md': '0 4px 24px rgba(13,31,60,0.12)',
+        'warm-lg': '0 8px 48px rgba(13,31,60,0.15)',
       },
       backgroundImage: {
         'honey-gradient': 'linear-gradient(135deg, #FDF3DC 0%, #F0E4C0 100%)',
-        'hero-gradient': 'linear-gradient(135deg, #2C1A08 0%, #3D2410 100%)',
+        'hero-gradient': 'linear-gradient(135deg, #0F2044 0%, #1B3A6B 100%)',
         'gold-divider': 'linear-gradient(90deg, transparent, #B8860B, transparent)',
       },
     },

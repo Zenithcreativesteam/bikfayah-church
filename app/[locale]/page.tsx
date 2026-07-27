@@ -106,7 +106,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
             {welcomeImageUrl ? (
               <img src={welcomeImageUrl} alt="Welcome" className="rounded-3xl shadow-warm-lg w-full h-80 object-cover" />
             ) : (
-              <div className="relative rounded-3xl overflow-hidden shadow-warm-lg flex items-center justify-center min-h-80" style={{ background: 'linear-gradient(135deg, #2C1A08, #3D2410)' }}>
+              <div className="relative rounded-3xl overflow-hidden shadow-warm-lg flex items-center justify-center min-h-80" style={{ background: 'linear-gradient(135deg, #0F2044, #1B3A6B)' }}>
                 <div className="text-center p-10 text-amber-100">
                   <p className="font-serif italic text-2xl mb-4 leading-relaxed">"{welcomeQuote}"</p>
                   <p className="label-gold text-amber-400">— Psalm 34:8</p>
@@ -168,7 +168,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
       </section>
 
       {/* ── Gospel CTA ── */}
-      <section className="py-24 px-6 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #2C1A08 0%, #3D2410 100%)' }}>
+      <section className="py-24 px-6 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0F2044 0%, #1B3A6B 100%)' }}>
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #B8860B 1px, transparent 0)', backgroundSize: '40px 40px' }} />
         <div className="container-church relative z-10 text-center">
           <RevealOnScroll>

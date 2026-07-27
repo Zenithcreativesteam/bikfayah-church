@@ -54,7 +54,7 @@ export default function Navbar() {
             <Link href={`/${locale}`} className="flex items-center gap-2.5 group flex-shrink-0">
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center shadow-warm-sm transition-all group-hover:scale-105"
-                style={{ background: 'linear-gradient(135deg, #2C1A08, #B8860B)' }}
+                style={{ background: 'linear-gradient(135deg, #0F2044, #1B3A6B)' }}
               >
                 <CrossIcon size={18} color="white" />
               </div>
@@ -134,7 +134,7 @@ export default function Navbar() {
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-0 z-40 flex flex-col"
-            style={{ background: 'linear-gradient(135deg, #2C1A08, #3D2410)' }}
+            style={{ background: 'linear-gradient(135deg, #071529, #0F2044)' }}
           >
             <div className="flex-1 flex flex-col items-center justify-center gap-6 p-8">
               {navKeys.map((key, i) => (

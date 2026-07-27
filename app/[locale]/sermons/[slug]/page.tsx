@@ -47,7 +47,7 @@ export default async function SermonDetailPage({ params: { locale, slug } }: Pro
       {/* Hero */}
       <section
         className="pt-36 pb-16 px-6 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #2C1A08 0%, #3D2410 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #0F2044 0%, #1B3A6B 100%)' }}
       >
         <div className="container-church max-w-4xl relative z-10">
           <Link href={`/${locale}/sermons`} className="text-amber-400 text-sm hover:text-amber-200 transition-colors mb-6 inline-block">

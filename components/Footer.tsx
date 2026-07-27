@@ -20,7 +20,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer style={{ background: 'linear-gradient(135deg, #1C1208 0%, #2C1A08 100%)' }}>
+    <footer style={{ background: 'linear-gradient(135deg, #071529 0%, #0F2044 100%)' }}>
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand column */}
@@ -30,7 +30,7 @@ export default function Footer() {
                 <CrossIcon size={18} color="white" />
               </div>
               <div>
-                <p className="font-serif text-white font-semibold">Bikfayah Baptist</p>
+                <p className="font-serif text-white font-semibold">Bikfaya Baptist</p>
                 <p className="text-amber-400 text-xs">Bikfaya, Lebanon</p>
               </div>
             </div>
@@ -46,7 +46,7 @@ export default function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-full border border-amber-800 flex items-center justify-center text-amber-400 text-xs hover:border-gold hover:text-gold transition-colors"
+                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-amber-400 text-xs hover:border-gold hover:text-gold transition-colors"
                 >
                   {s.icon}
                 </a>
@@ -106,11 +106,11 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="mt-12 pt-8 border-t border-amber-900 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-amber-700 text-xs text-center">
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-blue-200/50 text-xs text-center">
             {t('rights').replace('{year}', String(year))}
           </p>
-          <p className="text-amber-800 text-xs italic font-serif">
+          <p className="text-blue-200/40 text-xs italic font-serif">
             "To God alone be the glory"
           </p>
         </div>

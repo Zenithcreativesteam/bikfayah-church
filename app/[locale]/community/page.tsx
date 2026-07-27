@@ -55,7 +55,7 @@ function CommunityContent({ locale }: { locale: string }) {
           <RevealOnScroll direction="left">
             <div
               className="rounded-3xl h-64 flex items-center justify-center shadow-warm-lg order-2 md:order-1"
-              style={{ background: 'linear-gradient(135deg, #2C1A08, #3D2410)' }}
+              style={{ background: 'linear-gradient(135deg, #0F2044, #1B3A6B)' }}
             >
               <p className="font-serif text-white italic text-xl px-8 text-center">
                 "Your word is a lamp to my feet"

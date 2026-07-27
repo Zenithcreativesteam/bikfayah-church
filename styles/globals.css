@@ -126,7 +126,7 @@
   /* Timeline */
   .timeline-line {
     @apply absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2;
-    background: linear-gradient(to bottom, transparent, #B8860B 10%, #B8860B 90%, transparent);
+    background: linear-gradient(to bottom, transparent, #1B3A6B 10%, #1B3A6B 90%, transparent);
   }
 }
 

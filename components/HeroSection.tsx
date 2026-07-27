@@ -30,7 +30,7 @@ export default function HeroSection({
       style={{
         background: backgroundImageUrl
           ? undefined
-          : 'linear-gradient(135deg, #2C1A08 0%, #3D2410 55%, #2C1A08 100%)',
+          : 'linear-gradient(135deg, #0F2044 0%, #1B3A6B 55%, #0F2044 100%)',
       }}
     >
       {/* Background image */}
@@ -43,7 +43,7 @@ export default function HeroSection({
           {/* Dark overlay over image */}
           <div
             className="absolute inset-0"
-            style={{ background: `#1C1208${overlayAlpha}` }}
+            style={{ background: `#0D1F3C${overlayAlpha}` }}
           />
         </>
       )}

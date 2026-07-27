@@ -145,7 +145,7 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
         className="py-20 px-6 relative bg-cover bg-center"
         style={familiesImageUrl
           ? { backgroundImage: `linear-gradient(rgba(28,18,8,0.75), rgba(28,18,8,0.75)), url(${familiesImageUrl})` }
-          : { background: 'linear-gradient(135deg, #2C1A08, #3D2410)' }}
+          : { background: 'linear-gradient(135deg, #0F2044, #1B3A6B)' }}
       >
         <div className="container-church max-w-3xl text-center relative z-10">
           <RevealOnScroll>

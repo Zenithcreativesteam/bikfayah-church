@@ -22,9 +22,9 @@ export default defineType({
 
     // ── Colors ──
     defineField({ name: 'colorGold', title: 'Gold Accent Color', type: 'string', group: 'colors', initialValue: '#B8860B', description: 'Hex color, e.g. #B8860B' }),
-    defineField({ name: 'colorHeroDark', title: 'Hero Background Color', type: 'string', group: 'colors', initialValue: '#2C1A08' }),
+    defineField({ name: 'colorHeroDark', title: 'Hero Background Color', type: 'string', group: 'colors', initialValue: '#0F2044' }),
     defineField({ name: 'colorPageBg', title: 'Page Background Color', type: 'string', group: 'colors', initialValue: '#FDFBF7' }),
-    defineField({ name: 'colorTextPrimary', title: 'Primary Text Color', type: 'string', group: 'colors', initialValue: '#1C1208' }),
+    defineField({ name: 'colorTextPrimary', title: 'Primary Text Color', type: 'string', group: 'colors', initialValue: '#0D1F3C' }),
 
     // ── Contact ──
     defineField({ name: 'address', title: 'Address (English)', type: 'string', group: 'contact' }),

@@ -303,6 +303,13 @@ export const fallbackTestimonials: Testimonial[] = [
     author: 'Maya R.',
     role: 'Youth ministry leader',
   },
+  {
+    _id: 'tm4',
+    quote: 'The Lord used this church to bring me to a deeper love for His Word and a greater desire to follow Christ. Faithful teaching, genuine fellowship, and God\'s grace have shaped my life in ways I never expected.',
+    quoteAr: 'استخدم الرب هذه الكنيسة ليقودني إلى محبة أعمق لكلمته ورغبة أكبر في اتباع المسيح. التعليم الأمين، الشركة الحقيقية، ونعمة الله شكّلت حياتي بطرق لم أتوقعها أبداً.',
+    author: 'Samir Nakhle',
+    role: 'Church member since 2024',
+  },
 ];
 
 export const fallbackMarqueeVerses = [

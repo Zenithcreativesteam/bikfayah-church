@@ -83,7 +83,7 @@
   /* Sermon thumbnail placeholder */
   .sermon-thumb {
     @apply w-full aspect-video rounded-xl flex items-center justify-center;
-    background: linear-gradient(135deg, #FDF3DC 0%, #F0E4C0 100%);
+    background: linear-gradient(135deg, #EAF0FA 0%, #D8E4F5 100%);
   }
 
   /* Nav link underline animation */
@@ -104,13 +104,13 @@
   .verse-block {
     @apply relative pl-6 py-4 my-6;
     border-left: 3px solid #B8860B;
-    background: linear-gradient(to right, rgba(253,243,220,0.5), transparent);
+    background: linear-gradient(to right, rgba(214,228,245,0.5), transparent);
   }
   [dir="rtl"] .verse-block {
     @apply pl-0 pr-6;
     border-left: none;
     border-right: 3px solid #B8860B;
-    background: linear-gradient(to left, rgba(253,243,220,0.5), transparent);
+    background: linear-gradient(to left, rgba(214,228,245,0.5), transparent);
   }
 
   /* Input styles */

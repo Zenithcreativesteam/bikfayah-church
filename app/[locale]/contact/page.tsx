@@ -186,7 +186,7 @@ export default function ContactPage() {
             <RevealOnScroll direction="right" delay={0.15}>
               <div
                 className="rounded-2xl h-52 flex items-center justify-center shadow-warm"
-                style={{ background: 'linear-gradient(135deg, #FDF3DC, #E8D9A0)' }}
+                style={{ background: 'linear-gradient(135deg, #EAF0FA, #E8D9A0)' }}
               >
                 <div className="text-center">
                   <p className="text-4xl mb-2">🗺</p>

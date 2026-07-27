@@ -34,7 +34,7 @@ export default function Footer() {
                 <p className="text-amber-400 text-xs">Bikfaya, Lebanon</p>
               </div>
             </div>
-            <p className="text-amber-200 text-sm leading-relaxed mb-5 opacity-80">{t('tagline')}</p>
+            <p className="text-white/65 text-sm leading-relaxed mb-5">{t('tagline')}</p>
             <div className="flex gap-3">
               {/* Social icons */}
               {[
@@ -60,7 +60,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {navLinks.map(link => (
                 <li key={link.key}>
-                  <Link href={link.href} className="text-amber-300 text-sm hover:text-white transition-colors opacity-75 hover:opacity-100">
+                  <Link href={link.href} className="text-white/60 text-sm hover:text-white transition-colors">
                     {tNav(link.key)}
                   </Link>
                 </li>
@@ -78,7 +78,7 @@ export default function Footer() {
                 { label: t('bibleStudy'), time: t('bibleStudyTime') },
               ].map(s => (
                 <li key={s.label}>
-                  <p className="text-amber-300 text-sm opacity-75">{s.label}</p>
+                  <p className="text-white/55 text-sm">{s.label}</p>
                   <p className="text-white font-serif text-base">{s.time}</p>
                 </li>
               ))}
@@ -91,15 +91,15 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-2">
                 <span className="text-gold mt-0.5 flex-shrink-0">📍</span>
-                <span className="text-amber-300 opacity-80">{t('address')}</span>
+                <span className="text-white/60">{t('address')}</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-gold flex-shrink-0">📞</span>
-                <a href={`tel:${t('phone')}`} className="text-amber-300 opacity-80 hover:opacity-100 hover:text-white transition-colors">{t('phone')}</a>
+                <a href={`tel:${t('phone')}`} className="text-white/60 hover:text-white transition-colors">{t('phone')}</a>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-gold flex-shrink-0">✉</span>
-                <a href={`mailto:${t('email')}`} className="text-amber-300 opacity-80 hover:opacity-100 hover:text-white transition-colors">{t('email')}</a>
+                <a href={`mailto:${t('email')}`} className="text-white/60 hover:text-white transition-colors">{t('email')}</a>
               </li>
             </ul>
           </div>

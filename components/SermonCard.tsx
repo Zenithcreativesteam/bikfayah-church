@@ -31,7 +31,7 @@ export default function SermonCard({ sermon, variant = 'grid' }: SermonCardProps
         {/* Thumbnail */}
         <div
           className="relative flex items-center justify-center min-h-64"
-          style={{ background: 'linear-gradient(135deg, #FDF3DC 0%, #F0E4C0 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #EAF0FA 0%, #D8E4F5 100%)' }}
         >
           <div className="text-center">
             <CrossIcon size={64} color="#B8860B" className="mx-auto mb-3 opacity-40" />
@@ -85,7 +85,7 @@ export default function SermonCard({ sermon, variant = 'grid' }: SermonCardProps
       {/* Thumbnail */}
       <div
         className="relative h-44 rounded-xl mb-4 flex items-center justify-center overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #FDF3DC 0%, #F0E4C0 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #EAF0FA 0%, #D8E4F5 100%)' }}
       >
         <CrossIcon size={40} color="#B8860B" className="opacity-25" />
         {sermon.youtubeUrl && (

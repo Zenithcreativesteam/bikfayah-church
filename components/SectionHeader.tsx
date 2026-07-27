@@ -21,11 +21,11 @@ export default function SectionHeader({ label, title, subtitle, centered = true,
       >
         {title}
       </h2>
-      <div className="gold-divider" style={{ background: light ? 'linear-gradient(90deg, transparent, rgba(253,243,220,0.7), transparent)' : undefined }} />
+      <div className="gold-divider" style={{ background: light ? 'linear-gradient(90deg, transparent, rgba(214,228,245,0.7), transparent)' : undefined }} />
       {subtitle && (
         <p
           className={`mt-4 text-lg leading-relaxed max-w-2xl ${centered ? 'mx-auto' : ''} ${
-            light ? 'text-amber-100' : 'text-brown-mid'
+            light ? 'text-blue-100' : 'text-brown-mid'
           }`}
         >
           {subtitle}

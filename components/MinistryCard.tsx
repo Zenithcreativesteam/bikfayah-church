@@ -9,7 +9,7 @@ export default function MinistryCard({ title, description, icon }: MinistryCardP
     <div className="card-warm hover:shadow-warm-md transition-all duration-300 hover:-translate-y-0.5 group">
       <div
         className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4 shadow-warm-sm"
-        style={{ background: 'linear-gradient(135deg, #FDF3DC, #F0E4C0)', border: '1px solid rgba(184,134,11,0.2)' }}
+        style={{ background: 'linear-gradient(135deg, #EAF0FA, #D8E4F5)', border: '1px solid rgba(184,134,11,0.2)' }}
       >
         {icon}
       </div>

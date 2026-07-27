@@ -63,7 +63,7 @@ export default function HeroSection({
       <div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(184,134,11,0.12) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at center, rgba(27,58,107,0.12) 0%, transparent 70%)',
         }}
       />
 
@@ -79,7 +79,7 @@ export default function HeroSection({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xs font-sans font-semibold uppercase tracking-widest text-amber-300 mb-4"
+            className="text-xs font-sans font-semibold uppercase tracking-widest text-gold mb-4"
           >
             {label}
           </motion.p>
@@ -97,7 +97,7 @@ export default function HeroSection({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="text-amber-100 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-8"
+            className="text-blue-100 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-8"
           >
             {subtitle}
           </motion.p>

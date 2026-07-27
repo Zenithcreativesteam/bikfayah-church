@@ -78,7 +78,7 @@ export default async function JesusPage({ params: { locale } }: { params: { loca
               <RevealOnScroll key={i} delay={i * 0.1}>
                 <div className="card-warm h-full">
                   <div className="flex items-start gap-4 mb-3">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 shadow-warm-sm" style={{ background: 'linear-gradient(135deg, #FDF3DC, #F0E4C0)', border: '1px solid rgba(184,134,11,0.2)' }}>
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 shadow-warm-sm" style={{ background: 'linear-gradient(135deg, #EAF0FA, #D8E4F5)', border: '1px solid rgba(184,134,11,0.2)' }}>
                       {step.icon}
                     </div>
                     <div className="pt-2">
@@ -112,7 +112,7 @@ export default async function JesusPage({ params: { locale } }: { params: { loca
             </p>
           </RevealOnScroll>
           <RevealOnScroll delay={0.1}>
-            <div className="relative rounded-2xl p-8 md:p-10 text-left shadow-warm-md" style={{ background: 'linear-gradient(135deg, #FDFBF7, #F7F0E4)', border: '1px solid rgba(184,134,11,0.25)' }}>
+            <div className="relative rounded-2xl p-8 md:p-10 text-left shadow-warm-md" style={{ background: 'linear-gradient(135deg, #F8FAFD, #EEF3FB)', border: '1px solid rgba(184,134,11,0.25)' }}>
               <div className="absolute top-4 left-6 font-serif text-8xl leading-none select-none" style={{ color: 'rgba(184,134,11,0.08)' }} aria-hidden="true">"</div>
               <p className="font-serif italic text-xl text-brown-deep leading-relaxed relative z-10">
                 {(ar ? cms?.prayerSampleAr : cms?.prayerSample) ?? t('prayerSample')}

@@ -15,7 +15,7 @@ export default function StaffCard({ member, locale = 'en' }: StaffCardProps) {
       {/* Photo placeholder */}
       <div
         className="w-28 h-28 rounded-full mx-auto mb-5 flex items-center justify-center text-3xl font-serif font-light shadow-warm"
-        style={{ background: 'linear-gradient(135deg, #FDF3DC 0%, #D4A853 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #EAF0FA 0%, #D4A853 100%)' }}
       >
         <span className="text-amber-900 font-serif text-3xl font-semibold select-none">
           {member.initials}

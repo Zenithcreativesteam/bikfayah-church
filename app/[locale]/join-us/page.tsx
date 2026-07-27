@@ -103,7 +103,7 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
               {siteSettings?.mapEmbedUrl ? (
                 <iframe src={siteSettings.mapEmbedUrl} className="w-full h-64 rounded-2xl shadow-warm-md border-0" allowFullScreen loading="lazy" title="Church location" />
               ) : (
-                <div className="rounded-2xl h-64 flex items-center justify-center shadow-warm-md" style={{ background: 'linear-gradient(135deg, #FDF3DC, #E8D9A0)' }}>
+                <div className="rounded-2xl h-64 flex items-center justify-center shadow-warm-md" style={{ background: 'linear-gradient(135deg, #EAF0FA, #E8D9A0)' }}>
                   <div className="text-center"><p className="text-5xl mb-3">🗺</p><p className="text-brown-mid font-serif text-lg">Bikfaya, Lebanon</p><p className="text-brown-muted text-sm">Mount Lebanon Governorate</p></div>
                 </div>
               )}
@@ -131,7 +131,7 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
             {expectations.map((e: any, i: number) => (
               <RevealOnScroll key={i} delay={i * 0.08}>
                 <div className="card-warm flex gap-4 items-start">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style={{ background: 'linear-gradient(135deg, #FDF3DC, #F0E4C0)', border: '1px solid rgba(184,134,11,0.2)' }}>{e.icon}</div>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style={{ background: 'linear-gradient(135deg, #EAF0FA, #D8E4F5)', border: '1px solid rgba(184,134,11,0.2)' }}>{e.icon}</div>
                   <div><h3 className="font-serif text-lg text-brown-deep mb-1">{e.title}</h3><p className="text-brown-mid text-sm leading-relaxed">{e.text}</p></div>
                 </div>
               </RevealOnScroll>
@@ -153,7 +153,7 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
             <p className="label-gold text-amber-400 mb-4">{t('familiesLabel')}</p>
             <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">{(ar ? cms?.familiesTitleAr : cms?.familiesTitle) ?? t('familiesTitle')}</h2>
             <div className="w-24 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #B8860B, transparent)' }} />
-            <p className="text-amber-200 text-lg leading-relaxed">{(ar ? cms?.familiesTextAr : cms?.familiesText) ?? t('familiesText')}</p>
+            <p className="text-blue-200/80 text-lg leading-relaxed">{(ar ? cms?.familiesTextAr : cms?.familiesText) ?? t('familiesText')}</p>
           </RevealOnScroll>
         </div>
       </section>

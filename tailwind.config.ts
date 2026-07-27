@@ -9,12 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Core palette
-        'warm-white': '#FDFBF7',
-        'parchment': '#F2EBD9',
-        'parchment-light': '#F7F0E4',
-        'honey-light': '#FDF3DC',
-        'honey': '#F0E4C0',
+        // Core palette — cool navy-family backgrounds
+        'warm-white': '#F8FAFD',
+        'parchment': '#E6EDF8',
+        'parchment-light': '#EEF3FB',
+        'honey-light': '#EAF0FA',
+        'honey': '#D8E4F5',
         // Text (navy-based)
         'brown-deep': '#0D1F3C',
         'brown-mid': '#1E3A5F',
@@ -44,7 +44,7 @@ const config: Config = {
         'warm-lg': '0 8px 48px rgba(13,31,60,0.15)',
       },
       backgroundImage: {
-        'honey-gradient': 'linear-gradient(135deg, #FDF3DC 0%, #F0E4C0 100%)',
+        'honey-gradient': 'linear-gradient(135deg, #EAF0FA 0%, #D8E4F5 100%)',
         'hero-gradient': 'linear-gradient(135deg, #0F2044 0%, #1B3A6B 100%)',
         'gold-divider': 'linear-gradient(90deg, transparent, #B8860B, transparent)',
       },

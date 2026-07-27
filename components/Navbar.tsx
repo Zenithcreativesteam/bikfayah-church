@@ -62,7 +62,7 @@ export default function Navbar() {
                 <p className={`font-serif text-base font-semibold transition-colors ${scrolled ? 'text-brown-deep' : 'text-white'}`}>
                   Bikfaya Baptist
                 </p>
-                <p className={`text-xs transition-colors ${scrolled ? 'text-brown-muted' : 'text-amber-200'}`}>
+                <p className={`text-xs transition-colors ${scrolled ? 'text-brown-muted' : 'text-white/60'}`}>
                   Bikfaya, Lebanon
                 </p>
               </div>
@@ -79,7 +79,7 @@ export default function Navbar() {
                       ? `active font-semibold ${scrolled ? 'text-navy' : 'text-white'}`
                       : scrolled
                       ? ''
-                      : 'text-amber-100 hover:text-white'
+                      : 'text-white/75 hover:text-white'
                   }`}
                 >
                   {t(key)}
@@ -94,7 +94,7 @@ export default function Navbar() {
                 className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
                   scrolled
                     ? 'border-gold text-gold hover:bg-gold hover:text-white'
-                    : 'border-amber-300 text-amber-100 hover:bg-white hover:text-brown-deep'
+                    : 'border-white/30 text-white/80 hover:bg-white hover:text-navy-deep'
                 }`}
               >
                 {locale === 'en' ? 'العربية' : 'English'}
@@ -116,7 +116,7 @@ export default function Navbar() {
               {[0, 1, 2].map(i => (
                 <span
                   key={i}
-                  className={`block w-5 h-0.5 transition-all duration-300 ${scrolled ? 'bg-brown-deep' : 'bg-white'}`}
+                  className={`block w-5 h-0.5 transition-all duration-300 ${scrolled ? 'bg-navy-deep' : 'bg-white'}`}
                   style={{
                     transform: mobileOpen
                       ? i === 0 ? 'translateY(8px) rotate(45deg)' : i === 2 ? 'translateY(-8px) rotate(-45deg)' : 'scaleX(0)'
@@ -150,7 +150,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={`/${locale}${navPaths[key]}`}
-                    className="font-serif text-3xl text-white hover:text-amber-300 transition-colors"
+                    className="font-serif text-3xl text-white hover:text-gold transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
                     {t(key)}
@@ -169,7 +169,7 @@ export default function Navbar() {
               <motion.button
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
                 onClick={switchLocale}
-                className="mt-2 px-4 py-2 rounded-full border border-amber-300 text-amber-200 text-sm"
+                className="mt-2 px-4 py-2 rounded-full border border-white/25 text-white/70 text-sm"
               >
                 {locale === 'en' ? 'العربية' : 'English'}
               </motion.button>

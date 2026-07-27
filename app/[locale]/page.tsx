@@ -82,7 +82,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           <Link href={`/${locale}/join-us`} className="btn-gold">
             {(locale === 'ar' ? cms?.heroCtaPrimaryAr : cms?.heroCtaPrimary) ?? t('heroCtaPrimary')}
           </Link>
-          <Link href={`/${locale}/about`} className="inline-flex items-center gap-2 border border-amber-300 text-amber-100 px-6 py-3 rounded-full font-sans font-medium hover:bg-white hover:text-brown-deep transition-all">
+          <Link href={`/${locale}/about`} className="inline-flex items-center gap-2 border border-amber-300 text-blue-100 px-6 py-3 rounded-full font-sans font-medium hover:bg-white hover:text-brown-deep transition-all">
             {(locale === 'ar' ? cms?.heroCtaSecondaryAr : cms?.heroCtaSecondary) ?? t('heroCtaSecondary')}
           </Link>
         </div>
@@ -107,7 +107,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
               <img src={welcomeImageUrl} alt="Welcome" className="rounded-3xl shadow-warm-lg w-full h-80 object-cover" />
             ) : (
               <div className="relative rounded-3xl overflow-hidden shadow-warm-lg flex items-center justify-center min-h-80" style={{ background: 'linear-gradient(135deg, #0F2044, #1B3A6B)' }}>
-                <div className="text-center p-10 text-amber-100">
+                <div className="text-center p-10 text-blue-100">
                   <p className="font-serif italic text-2xl mb-4 leading-relaxed">"{welcomeQuote}"</p>
                   <p className="label-gold text-amber-400">— Psalm 34:8</p>
                 </div>
@@ -175,7 +175,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
             <p className="label-gold text-amber-400 mb-4">{t('gospelLabel')}</p>
             <h2 className="font-serif text-4xl md:text-5xl text-white mb-6">{gospelTitle}</h2>
             <div className="w-24 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #B8860B, transparent)' }} />
-            <p className="text-amber-200 max-w-2xl mx-auto text-lg leading-relaxed mb-10">{gospelText}</p>
+            <p className="text-blue-200/80 max-w-2xl mx-auto text-lg leading-relaxed mb-10">{gospelText}</p>
             <Link href={`/${locale}/jesus`} className="btn-gold">{t('gospelCta')}</Link>
           </RevealOnScroll>
         </div>

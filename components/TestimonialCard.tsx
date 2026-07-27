@@ -24,7 +24,7 @@ export default function TestimonialCard({ testimonial, locale = 'en' }: Testimon
       <div className="flex items-center gap-3 border-t border-gold-light pt-4">
         <div
           className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-serif font-semibold flex-shrink-0"
-          style={{ background: 'linear-gradient(135deg, #FDF3DC, #D4A853)', color: '#5C3D0A' }}
+          style={{ background: 'linear-gradient(135deg, #EAF0FA, #D4A853)', color: '#5C3D0A' }}
         >
           {testimonial.author.split(' ').map(n => n[0]).join('').slice(0,2)}
         </div>

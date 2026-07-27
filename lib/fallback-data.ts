@@ -198,8 +198,8 @@ export const fallbackStaff: StaffMember[] = [
     roleAr: 'القس الرئيسي',
     staffType: 'pastor',
     initials: 'SK',
-    bio: 'Pastor Samuel has served Bikfaya Baptist Church for over 20 years. Born and raised in Lebanon, he studied theology at ABTS (Arab Baptist Theological Seminary) in Beirut and holds a Master of Divinity. He is passionate about expository preaching, church planting, and seeing Lebanon transformed by the gospel of Jesus Christ. He and his wife Miriam have three children.',
-    bioAr: 'خدم القس صموئيل كنيسة بكفيّا المعمدانية لأكثر من ٢٠ عاماً. وُلد وتربّى في لبنان، درس اللاهوت في الكلية اللاهوتية المعمدانية العربية ببيروت ويحمل درجة الماجستير في الإلهيات. شغوف بالكرازة التفسيرية وزرع الكنائس ورؤية لبنان متحوّلاً بإنجيل يسوع المسيح. له وزوجته مريم ثلاثة أطفال.',
+    bio: 'Pastor Dr. Samuel Kharat has served Bikfaya Baptist Church since 1979. He is a graduate of the Arab Baptist Theological Seminary (ABTS) in Beirut and served as a professor of Pastoral Theology and Christian Counseling there from 1985 to 2019. He is the founder of ACME (Association of Counselling Ministry and Education) and holds a PhD in Psychological Counseling from Alabama, USA. He has also served as president of the Association of Evangelical Baptist Churches in Lebanon. He and his wife Rouda have two children and five grandchildren.',
+    bioAr: 'القس الدكتور صمونيل الخرّاط راعي كنيسة بكفيّا البابتية الإنجيلية منذ عام ١٩٧٩. تخرّج من كلية اللاهوت المعمدانية العربية (ABTS) في بيروت، وخدم أستاذاً لمواد اللاهوت الراعوي والإرشاد المسيحي فيها من ١٩٨٥ حتى ٢٠١٩. مؤسس ورئيس مؤسسة «أكمي» للتعليم والإرشاد، وحاصل على درجة الدكتوراه في الإرشاد النفسي من ألاباما، أمريكا. خدم أيضاً رئيساً لمجمع الكنائس المعمدانية الإنجيلية في لبنان. متزوج من رودا الحمصي ولهما ولدان وخمسة أحفاد.',
   },
   {
     _id: 'st2',

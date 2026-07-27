@@ -80,9 +80,11 @@ export default function SermonCard({ sermon, variant = 'grid' }: SermonCardProps
                 {tCommon('watchNow')}
               </a>
             )}
-            <Link href={`/${locale}/sermons/${sermon.slug}`} className="btn-outline text-sm">
-              {tCommon('readMore')}
-            </Link>
+            {!sermon.youtubeUrl && (
+              <Link href={`/${locale}/sermons/${sermon.slug}`} className="btn-outline text-sm">
+                {tCommon('readMore')}
+              </Link>
+            )}
           </div>
         </div>
       </div>

@@ -314,8 +314,8 @@ export const fallbackMarqueeVerses = [
 ];
 
 export const fallbackServiceTimes = [
-  { title: 'Sunday Morning Worship', titleAr: 'عبادة صباح الأحد', time: '10:00 AM', timeAr: '١٠:٠٠ صباحاً', icon: '✝', note: 'Main worship service', noteAr: 'خدمة العبادة الرئيسية' },
-  { title: 'Sunday School', titleAr: 'مدرسة الأحد', time: '9:00 AM', timeAr: '٩:٠٠ صباحاً', icon: '📖', note: 'All ages', noteAr: 'لجميع الأعمار' },
-  { title: 'Wednesday Bible Study', titleAr: 'دراسة الكتاب - الأربعاء', time: '6:30 PM', timeAr: '٦:٣٠ مساءً', icon: '🕯', note: 'Verse by verse', noteAr: 'آية بآية' },
-  { title: 'Friday Youth Group', titleAr: 'شبيبة - الجمعة', time: '5:00 PM', timeAr: '٥:٠٠ مساءً', icon: '🌿', note: 'Ages 12–25', noteAr: 'أعمار ١٢–٢٥' },
+  { title: 'Sunday Morning Worship', titleAr: 'عبادة صباح الأحد', time: '10:30 AM', timeAr: '١٠:٣٠ صباحاً', icon: '✝', note: 'Main worship service', noteAr: 'خدمة العبادة الرئيسية' },
+  { title: 'Sunday School', titleAr: 'مدرسة الأحد', time: '9:30 AM', timeAr: '٩:٣٠ صباحاً', icon: '📖', note: 'All ages', noteAr: 'لجميع الأعمار' },
+  { title: 'Friday Bible Study', titleAr: 'دراسة الكتاب - الجمعة', time: '7:00 PM', timeAr: '٧:٠٠ مساءً', icon: '🕯', note: 'Verse by verse', noteAr: 'آية بآية' },
+  { title: 'Saturday Youth Group', titleAr: 'شبيبة - السبت', time: '6:00 PM', timeAr: '٦:٠٠ مساءً', icon: '🌿', note: 'Ages 12–25', noteAr: 'أعمار ١٢–٢٥' },
 ];

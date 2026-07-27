@@ -78,7 +78,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
         backgroundImageUrl={heroImageUrl}
         overlayOpacity={cms?.heroOverlayOpacity ?? 55}
       >
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link href={`/${locale}/join-us`} className="btn-gold">
             {(locale === 'ar' ? cms?.heroCtaPrimaryAr : cms?.heroCtaPrimary) ?? t('heroCtaPrimary')}
           </Link>

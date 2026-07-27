@@ -25,6 +25,12 @@ const config: Config = {
         // Hero
         'hero-dark': '#2C1A08',
         'hero-darker': '#3D2410',
+        // Navy blue palette
+        'navy-deep': '#0F2044',
+        'navy': '#1B3A6B',
+        'navy-mid': '#2C4F8A',
+        'navy-muted': '#4A6B9A',
+        'navy-light': 'rgba(27,58,107,0.12)',
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],

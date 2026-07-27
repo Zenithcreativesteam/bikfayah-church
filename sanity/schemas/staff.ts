@@ -5,6 +5,19 @@ export default defineType({
   title: 'Staff Member',
   type: 'document',
   fields: [
+    defineField({
+      name: 'staffType',
+      title: 'Staff Category',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Pastor / Ministry Staff', value: 'pastor' },
+          { title: 'Deacon', value: 'deacon' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'pastor',
+    }),
     defineField({ name: 'name', title: 'Name (English)', type: 'string', validation: r => r.required() }),
     defineField({ name: 'nameAr', title: 'Name (Arabic)', type: 'string' }),
     defineField({ name: 'role', title: 'Role (English)', type: 'string' }),

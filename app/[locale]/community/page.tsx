@@ -1,9 +1,9 @@
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import HeroSection from '@/components/HeroSection';
 import SectionHeader from '@/components/SectionHeader';
-import MinistryCard from '@/components/MinistryCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import { fallbackTestimonials } from '@/lib/fallback-data';
@@ -15,22 +15,19 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 
 function CommunityContent({ locale }: { locale: string }) {
   const t = useTranslations('community');
-  const tMin = useTranslations('ministries');
-
-  const ministries = [
-    { key: 'worship', icon: '🎵' },
-    { key: 'youth', icon: '✨' },
-    { key: 'women', icon: '🌸' },
-    { key: 'men', icon: '⚓' },
-    { key: 'outreach', icon: '🌍' },
-    { key: 'prayer', icon: '🕯' },
-    { key: 'children', icon: '🌱' },
-    { key: 'care', icon: '🤝' },
-  ] as const;
 
   return (
     <>
       <HeroSection label={t('heroLabel')} title={t('heroTitle')} subtitle={t('heroSubtitle')} />
+
+      {/* Join Us CTA */}
+      <section className="section-parchment-deep py-10">
+        <div className="container-church text-center">
+          <Link href={`/${locale}/join-us`} className="btn-gold text-base px-8 py-3">
+            {t('heroCtaJoinUs')}
+          </Link>
+        </div>
+      </section>
 
       {/* Youth Ministry feature */}
       <section className="section-warm">
@@ -75,26 +72,6 @@ function CommunityContent({ locale }: { locale: string }) {
         </div>
       </section>
 
-      {/* All Ministries grid */}
-      <section className="section-warm">
-        <div className="container-church">
-          <RevealOnScroll>
-            <SectionHeader label={t('ministriesLabel')} title={t('ministriesTitle')} />
-          </RevealOnScroll>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {ministries.map((m, i) => (
-              <RevealOnScroll key={m.key} delay={i * 0.06}>
-                <MinistryCard
-                  title={tMin(m.key)}
-                  description={tMin(`${m.key}Desc`)}
-                  icon={m.icon}
-                />
-              </RevealOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Testimonials */}
       <section className="section-parchment">
         <div className="container-church">
@@ -111,18 +88,7 @@ function CommunityContent({ locale }: { locale: string }) {
         </div>
       </section>
 
-      {/* Events placeholder */}
-      <section className="section-parchment-deep">
-        <div className="container-church text-center">
-          <RevealOnScroll>
-            <SectionHeader label={t('eventsLabel')} title={t('eventsTitle')} />
-            <div className="card-warm max-w-lg mx-auto py-12">
-              <p className="text-5xl mb-4">📅</p>
-              <p className="text-brown-mid">{t('noEvents')}</p>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+      {/* All Ministries & Upcoming Events — hidden until content is ready */}
     </>
   );
 }

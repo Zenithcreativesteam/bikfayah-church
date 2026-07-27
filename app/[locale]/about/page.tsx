@@ -75,10 +75,32 @@ export default function AboutPage() {
           <motion.section key="leadership" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="section-warm">
             <div className="container-church">
               <RevealOnScroll><SectionHeader label={t('leadershipLabel')} title={t('leadershipTitle')} /></RevealOnScroll>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                {fallbackStaff.map((member, i) => (
+              {/* Pastoral Staff */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+                {fallbackStaff.filter(m => m.staffType !== 'deacon').map((member, i) => (
                   <RevealOnScroll key={member._id} delay={i * 0.1}>
                     <StaffCard member={member} locale={locale} />
+                  </RevealOnScroll>
+                ))}
+              </div>
+              {/* Deacon Board */}
+              <RevealOnScroll>
+                <div className="text-center mb-8">
+                  <p className="label-gold mb-2">{locale === 'ar' ? 'مجلس الشمامسة' : 'Deacon Board'}</p>
+                  <h3 className="font-serif text-3xl text-brown-deep">{locale === 'ar' ? 'الشمامسة' : 'Our Deacons'}</h3>
+                  <div className="gold-divider mt-3" />
+                </div>
+              </RevealOnScroll>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5 max-w-4xl mx-auto">
+                {fallbackStaff.filter(m => m.staffType === 'deacon').map((member, i) => (
+                  <RevealOnScroll key={member._id} delay={i * 0.08}>
+                    <div className="card-warm text-center py-6 px-3">
+                      <div className="w-14 h-14 rounded-full mx-auto mb-3 flex items-center justify-center font-serif text-lg font-semibold text-white" style={{ background: 'linear-gradient(135deg, #1B3A6B, #2C4F8A)' }}>
+                        {member.initials}
+                      </div>
+                      <p className="font-serif text-sm font-semibold text-brown-deep">{locale === 'ar' ? member.nameAr : member.name}</p>
+                      <p className="text-xs text-brown-muted mt-0.5">{locale === 'ar' ? member.roleAr : member.role}</p>
+                    </div>
                   </RevealOnScroll>
                 ))}
               </div>

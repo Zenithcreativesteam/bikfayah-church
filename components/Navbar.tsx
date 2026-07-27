@@ -60,7 +60,7 @@ export default function Navbar() {
               </div>
               <div className="leading-tight">
                 <p className={`font-serif text-base font-semibold transition-colors ${scrolled ? 'text-brown-deep' : 'text-white'}`}>
-                  Bikfayah Baptist
+                  Bikfaya Baptist
                 </p>
                 <p className={`text-xs transition-colors ${scrolled ? 'text-brown-muted' : 'text-amber-200'}`}>
                   Bikfaya, Lebanon

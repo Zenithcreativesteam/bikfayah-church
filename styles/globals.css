@@ -99,7 +99,7 @@
     @apply w-full;
   }
   .nav-link.active {
-    @apply text-brown-deep;
+    color: #1B3A6B;
   }
 
   /* Verse block */
@@ -129,6 +129,17 @@
     background: linear-gradient(to bottom, transparent, #B8860B 10%, #B8860B 90%, transparent);
   }
 }
+
+  /* Arabic RTL label-gold size boost */
+  [dir="rtl"] .label-gold {
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* Arabic hero/section labels larger */
+  [dir="rtl"] h1, [dir="rtl"] h2 {
+    font-size: 1.15em;
+  }
 
 /* ── Utilities ────────────────────────────────────────────── */
 @layer utilities {

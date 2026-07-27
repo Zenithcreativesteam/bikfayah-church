@@ -7,7 +7,7 @@ const singletons = ['siteSettings', 'navigation', 'homePage', 'jesusPage', 'abou
 
 export default defineConfig({
   name: 'bikfayah-baptist',
-  title: 'Bikfayah Baptist Church CMS',
+  title: 'Bikfaya Baptist Church CMS',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? 'your-project-id',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production',
   plugins: [

@@ -75,8 +75,12 @@ export default function Navbar() {
                   key={key}
                   href={`/${locale}${navPaths[key]}`}
                   className={`nav-link px-4 py-2 rounded-lg transition-colors ${
-                    scrolled ? '' : 'text-amber-100 hover:text-white'
-                  } ${isActive(key) ? 'active font-semibold' : ''}`}
+                    isActive(key)
+                      ? `active font-semibold ${scrolled ? 'text-navy' : 'text-white'}`
+                      : scrolled
+                      ? ''
+                      : 'text-amber-100 hover:text-white'
+                  }`}
                 >
                   {t(key)}
                 </Link>

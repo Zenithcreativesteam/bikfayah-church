@@ -98,9 +98,7 @@
   .nav-link.active::after {
     @apply w-full;
   }
-  .nav-link.active {
-    color: #1B3A6B;
-  }
+  /* Active color is set by component (scroll-aware) — see Navbar.tsx */
 
   /* Verse block */
   .verse-block {

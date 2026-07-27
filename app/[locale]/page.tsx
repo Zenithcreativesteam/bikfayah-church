@@ -136,30 +136,10 @@ export default async function HomePage({ params: { locale } }: { params: { local
         </div>
       </section>
 
-      {/* ── Ministries ── */}
-      <section className="section-warm">
-        <div className="container-church">
-          <RevealOnScroll><SectionHeader label={t('ministriesLabel')} title={t('ministriesTitle')} /></RevealOnScroll>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {cmsMinistries?.length
-              ? cmsMinistries.map((m: any, i: number) => (
-                  <RevealOnScroll key={m._id} delay={i * 0.06}>
-                    <MinistryCard
-                      title={(locale === 'ar' ? m.titleAr : m.title) ?? m.title}
-                      description={(locale === 'ar' ? m.descriptionAr : m.description) ?? m.description}
-                      icon={m.icon ?? '✝'}
-                    />
-                  </RevealOnScroll>
-                ))
-              : defaultMinistries.map((m, i) => (
-                  <RevealOnScroll key={m.key} delay={i * 0.06}>
-                    <MinistryCard title={tMin(m.key)} description={tMin(`${m.key}Desc`)} icon={m.icon} />
-                  </RevealOnScroll>
-                ))
-            }
-          </div>
-        </div>
-      </section>
+      {/* ── Ministries ── hidden until content is ready */}
+      {/* <section className="section-warm">
+        ...
+      </section> */}
 
       {/* ── Service Times ── */}
       <section className="section-parchment-deep">

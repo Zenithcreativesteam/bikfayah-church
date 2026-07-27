@@ -30,19 +30,28 @@ export default function SermonCard({ sermon, variant = 'grid' }: SermonCardProps
       <div className="grid md:grid-cols-2 gap-8 bg-white rounded-3xl shadow-warm-md border border-gold-light overflow-hidden">
         {/* Thumbnail */}
         <div
-          className="relative flex items-center justify-center min-h-64"
-          style={{ background: 'linear-gradient(135deg, #EAF0FA 0%, #D8E4F5 100%)' }}
+          className="relative flex items-center justify-center min-h-64 overflow-hidden"
+          style={!sermon.thumbnailUrl ? { background: 'linear-gradient(135deg, #EAF0FA 0%, #D8E4F5 100%)' } : undefined}
         >
-          <div className="text-center">
-            <CrossIcon size={64} color="#B8860B" className="mx-auto mb-3 opacity-40" />
-            <span className="label-gold text-xs">{t('featuredLabel')}</span>
-          </div>
+          {sermon.thumbnailUrl ? (
+            <img
+              src={sermon.thumbnailUrl}
+              alt={title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : (
+            <div className="text-center">
+              <CrossIcon size={64} color="#B8860B" className="mx-auto mb-3 opacity-40" />
+              <span className="label-gold text-xs">{t('featuredLabel')}</span>
+            </div>
+          )}
           {sermon.youtubeUrl && (
             <a
               href={sermon.youtubeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="absolute inset-0 flex items-center justify-center group"
+              style={sermon.thumbnailUrl ? { background: 'rgba(0,0,0,0.25)' } : undefined}
             >
               <div className="w-16 h-16 rounded-full bg-white shadow-warm-md flex items-center justify-center group-hover:scale-110 transition-transform">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -85,15 +94,24 @@ export default function SermonCard({ sermon, variant = 'grid' }: SermonCardProps
       {/* Thumbnail */}
       <div
         className="relative h-44 rounded-xl mb-4 flex items-center justify-center overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #EAF0FA 0%, #D8E4F5 100%)' }}
+        style={!sermon.thumbnailUrl ? { background: 'linear-gradient(135deg, #EAF0FA 0%, #D8E4F5 100%)' } : undefined}
       >
-        <CrossIcon size={40} color="#B8860B" className="opacity-25" />
+        {sermon.thumbnailUrl ? (
+          <img
+            src={sermon.thumbnailUrl}
+            alt={title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <CrossIcon size={40} color="#B8860B" className="opacity-25" />
+        )}
         {sermon.youtubeUrl && (
           <a
             href={sermon.youtubeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            style={sermon.thumbnailUrl ? { background: 'rgba(0,0,0,0.3)' } : undefined}
           >
             <div className="w-12 h-12 rounded-full bg-white shadow-warm-md flex items-center justify-center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -119,12 +137,23 @@ export default function SermonCard({ sermon, variant = 'grid' }: SermonCardProps
         {excerpt}
       </p>
       <div className="flex gap-2 mt-auto">
-        <Link
-          href={`/${locale}/sermons/${sermon.slug}`}
-          className="text-gold text-sm font-medium hover:underline"
-        >
-          {tCommon('readMore')} →
-        </Link>
+        {sermon.youtubeUrl ? (
+          <a
+            href={sermon.youtubeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold text-sm font-medium hover:underline"
+          >
+            {tCommon('watchNow')} →
+          </a>
+        ) : (
+          <Link
+            href={`/${locale}/sermons/${sermon.slug}`}
+            className="text-gold text-sm font-medium hover:underline"
+          >
+            {tCommon('readMore')} →
+          </Link>
+        )}
       </div>
     </article>
   );

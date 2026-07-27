@@ -12,6 +12,7 @@ import RevealOnScroll from '@/components/RevealOnScroll';
 import VerseBlock from '@/components/VerseBlock';
 import { fallbackSermons, fallbackServiceTimes } from '@/lib/fallback-data';
 import { safeFetch, sanityImageUrl, queries } from '@/lib/sanity-fetch';
+import { fetchYouTubeVideos, youtubeToSermons } from '@/lib/youtube';
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'home' });
@@ -23,12 +24,13 @@ export default async function HomePage({ params: { locale } }: { params: { local
   const tMin = await getTranslations({ locale, namespace: 'ministries' });
   const tCommon = await getTranslations({ locale, namespace: 'common' });
 
-  // Fetch from Sanity (null if not configured)
-  const [cms, cmsMinistries, cmsServiceTimes, cmsSermons] = await Promise.all([
+  // Fetch from Sanity + YouTube in parallel
+  const [cms, cmsMinistries, cmsServiceTimes, cmsSermons, ytVideos] = await Promise.all([
     safeFetch<any>(queries.homePage),
     safeFetch<any[]>(queries.ministries),
     safeFetch<any[]>(queries.serviceTimes),
     safeFetch<any[]>(queries.sermons),
+    fetchYouTubeVideos(),
   ]);
 
   const heroImageUrl = sanityImageUrl(cms?.heroImage);
@@ -44,7 +46,13 @@ export default async function HomePage({ params: { locale } }: { params: { local
   const gospelText = (locale === 'ar' ? cms?.gospelTextAr : cms?.gospelText) ?? t('gospelText');
   const marqueeVerses = cms?.marqueeVerses ?? undefined;
 
-  const featuredSermon = (cmsSermons?.find((s: any) => s.featured)) ?? fallbackSermons.find(s => s.featured) ?? fallbackSermons[0];
+  // Latest sermon: YouTube first, then Sanity CMS, then static fallback
+  const ytSermons = youtubeToSermons(ytVideos);
+  const featuredSermon =
+    ytSermons[0] ??
+    (cmsSermons?.find((s: any) => s.featured)) ??
+    fallbackSermons.find(s => s.featured) ??
+    fallbackSermons[0];
 
   const defaultMinistries = [
     { key: 'worship', icon: '🎵' }, { key: 'youth', icon: '✨' },

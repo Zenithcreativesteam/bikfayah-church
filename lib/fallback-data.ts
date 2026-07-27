@@ -15,6 +15,7 @@ export interface Sermon {
   scripture: string;
   duration: number;
   youtubeUrl: string;
+  thumbnailUrl?: string;
   excerpt: string;
   excerptAr: string;
   tags: string[];

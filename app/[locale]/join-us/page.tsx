@@ -54,19 +54,6 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
         { title: t('faq6Q'), content: t('faq6A') },
       ];
 
-  const expectations = cms?.expectations?.length
-    ? cms.expectations.map((e: any) => ({
-        title: (ar ? e.titleAr : e.title) ?? e.title,
-        text: (ar ? e.textAr : e.text) ?? e.text,
-        icon: e.icon ?? '✓',
-      }))
-    : [
-        { title: t('expect1Title'), text: t('expect1Text'), icon: '👋' },
-        { title: t('expect2Title'), text: t('expect2Text'), icon: '🎵' },
-        { title: t('expect3Title'), text: t('expect3Text'), icon: '📖' },
-        { title: t('expect4Title'), text: t('expect4Text'), icon: '☕' },
-      ];
-
   const siteSettings = await safeFetch<any>(queries.siteSettings);
   const mapsUrl = siteSettings?.googleMapsUrl ?? 'https://maps.google.com/?q=Bikfaya,Lebanon';
 
@@ -119,23 +106,6 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
                 <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-gold self-start">{t('locationDirections')}</a>
               </div>
             </RevealOnScroll>
-          </div>
-        </div>
-      </section>
-
-      {/* What to Expect */}
-      <section className="section-warm">
-        <div className="container-church">
-          <RevealOnScroll><SectionHeader label={t('expectLabel')} title={t('expectTitle')} /></RevealOnScroll>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {expectations.map((e: any, i: number) => (
-              <RevealOnScroll key={i} delay={i * 0.08}>
-                <div className="card-warm flex gap-4 items-start">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style={{ background: 'linear-gradient(135deg, #EAF0FA, #D8E4F5)', border: '1px solid rgba(184,134,11,0.2)' }}>{e.icon}</div>
-                  <div><h3 className="font-serif text-lg text-brown-deep mb-1">{e.title}</h3><p className="text-brown-mid text-sm leading-relaxed">{e.text}</p></div>
-                </div>
-              </RevealOnScroll>
-            ))}
           </div>
         </div>
       </section>

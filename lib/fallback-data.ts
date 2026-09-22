@@ -92,7 +92,7 @@ export const fallbackSermons: Sermon[] = [
     scripture: 'Romans 3:21–26',
     duration: 45,
     youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    excerpt: 'The Reformation\'s great recovery — "by faith alone, in Christ alone" — is not a medieval invention but a biblical treasure we must guard and proclaim.',
+    excerpt: "The Reformation's great recovery — \"by faith alone, in Christ alone\" — is not a medieval invention but a biblical treasure we must guard and proclaim.",
     excerptAr: 'استرداد الإصلاح العظيم — "بالإيمان وحده، في المسيح وحده" — ليس اختراعاً في العصور الوسطى بل كنز كتابي يجب أن نحرسه ونكرز به.',
     tags: ['Romans', 'Justification', 'Gospel', 'Reformation'],
     featured: false,
@@ -110,7 +110,7 @@ export const fallbackSermons: Sermon[] = [
     scripture: 'Luke 15:11–32',
     duration: 50,
     youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    excerpt: 'The Parable of the Prodigal Son is perhaps the most beloved story in all of Scripture. But the hero is not the son — it\'s the father who sees from far off and runs.',
+    excerpt: "The Parable of the Prodigal Son is perhaps the most beloved story in all of Scripture. But the hero is not the son — it's the father who sees from far off and runs.",
     excerptAr: 'مَثَل الابن الشاطر ربما هو القصة الأحب في كل الكتاب المقدس. لكن البطل ليس الابن — بل الآب الذي يرى من بعيد ويركض.',
     tags: ['Luke', 'Grace', 'Parables', 'Prodigal'],
     featured: false,
@@ -146,7 +146,7 @@ export const fallbackSermons: Sermon[] = [
     scripture: 'Matthew 5:1–12',
     duration: 55,
     youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    excerpt: 'The Beatitudes are a revolution. Jesus turns the world\'s value system upside down and declares that the Kingdom belongs not to the powerful, but to those who know their need of God.',
+    excerpt: "The Beatitudes are a revolution. Jesus turns the world's value system upside down and declares that the Kingdom belongs not to the powerful, but to those who know their need of God.",
     excerptAr: 'التطويبات ثورة. يقلب يسوع نظام قيم العالم رأساً على عقب ويُعلن أن الملكوت لا ينتمي للأقوياء بل لمن يعرفون احتياجهم لله.',
     tags: ['Matthew', 'Beatitudes', 'Kingdom', 'Sermon on the Mount'],
     featured: false,
@@ -220,7 +220,7 @@ export const fallbackStaff: StaffMember[] = [
     roleAr: 'قسيس الشباب',
     staffType: 'pastor',
     initials: 'RW',
-    bio: 'Rick serves as our young adult pastor at Bikfaya Baptist. Originally from Australia, Rick served as a pastor across two cities before moving to serve God in the Middle East. Rick\'s prayer is for God to raise up a generation of believers who are deeply formed by the cross of Jesus.',
+    bio: "Rick serves as our young adult pastor at Bikfaya Baptist. Originally from Australia, Rick served as a pastor across two cities before moving to serve God in the Middle East. Rick's prayer is for God to raise up a generation of believers who are deeply formed by the cross of Jesus.",
     bioAr: 'يخدم ريك قسيساً للشباب في كنيسة بكفيّا المعمدانية. أصله من أستراليا، خدم قسيساً في مدينتين قبل أن ينتقل لخدمة الله في الشرق الأوسط. صلاة ريك هي أن يُقيم الله جيلاً من المؤمنين متشكّلاً في عمقه بصليب يسوع.',
   },
   // Deacon Board
@@ -284,7 +284,7 @@ export const fallbackStaff: StaffMember[] = [
 export const fallbackTestimonials: Testimonial[] = [
   {
     _id: 'tm1',
-    quote: 'I came to Bikfayah Baptist as a skeptic, just accompanying my wife. Three months later I surrendered my life to Christ. The preaching here is unlike anything I\'d heard — it\'s real, it\'s rooted in Scripture, and it changed everything for me.',
+    quote: "I came to Bikfayah Baptist as a skeptic, just accompanying my wife. Three months later I surrendered my life to Christ. The preaching here is unlike anything I'd heard — it's real, it's rooted in Scripture, and it changed everything for me.",
     quoteAr: 'جئت إلى كنيسة بكفيّا المعمدانية شكّاكاً، فقط مرافقاً لزوجتي. بعد ثلاثة أشهر سلّمت حياتي للمسيح. الكرازة هنا لا مثيل لها فيما سمعته — إنها حقيقية، متجذّرة في الكتاب المقدس، وغيّرت كل شيء بالنسبة لي.',
     author: 'Elie M.',
     role: 'Church member since 2021',
@@ -305,7 +305,7 @@ export const fallbackTestimonials: Testimonial[] = [
   },
   {
     _id: 'tm4',
-    quote: 'The Lord used this church to bring me to a deeper love for His Word and a greater desire to follow Christ. Faithful teaching, genuine fellowship, and God\'s grace have shaped my life in ways I never expected.',
+    quote: "The Lord used this church to bring me to a deeper love for His Word and a greater desire to follow Christ. Faithful teaching, genuine fellowship, and God's grace have shaped my life in ways I never expected.",
     quoteAr: 'استخدم الرب هذه الكنيسة ليقودني إلى محبة أعمق لكلمته ورغبة أكبر في اتباع المسيح. التعليم الأمين، الشركة الحقيقية، ونعمة الله شكّلت حياتي بطرق لم أتوقعها أبداً.',
     author: 'Samir Nakhle',
     role: 'Church member since 2024',
@@ -323,7 +323,7 @@ export const fallbackMarqueeVerses = [
 
 export const fallbackServiceTimes = [
   { title: 'Sunday Morning Worship', titleAr: 'عبادة صباح الأحد', time: '10:30 AM', timeAr: '١٠:٣٠ صباحاً', icon: '✝', note: 'Main worship service', noteAr: 'خدمة العبادة الرئيسية' },
-  { title: 'Sunday School', titleAr: 'مدرسة الأحد', time: '9:30 AM', timeAr: '٩:٣٠ صباحاً', icon: '📖', note: 'All ages', noteAr: 'لجميع الأعمار' },
+  { title: 'Sunday School', titleAr: 'مدرسة الأحد', time: '9:30 AM', timeAr: '٩:٣٠ صباحاً', icon: '📖', note: 'Ages 1–10 during sermon', noteAr: 'أعمار ١–١٠ خلال العظة' },
   { title: 'Friday Bible Study', titleAr: 'دراسة الكتاب - الجمعة', time: '7:00 PM', timeAr: '٧:٠٠ مساءً', icon: '🕯', note: 'Verse by verse', noteAr: 'آية بآية' },
   { title: 'Saturday Youth Group', titleAr: 'شبيبة - السبت', time: '6:00 PM', timeAr: '٦:٠٠ مساءً', icon: '🌿', note: 'Ages 12–25', noteAr: 'أعمار ١٢–٢٥' },
 ];

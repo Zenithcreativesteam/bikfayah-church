@@ -136,11 +136,6 @@ export default async function HomePage({ params: { locale } }: { params: { local
         </div>
       </section>
 
-      {/* ── Ministries ── hidden until content is ready */}
-      {/* <section className="section-warm">
-        ...
-      </section> */}
-
       {/* ── Service Times ── */}
       <section className="section-parchment-deep">
         <div className="container-church">

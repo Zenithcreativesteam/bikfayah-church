@@ -166,32 +166,19 @@ export default function ContactPage() {
               </div>
             </RevealOnScroll>
 
+            {/* Google Map */}
             <RevealOnScroll direction="right" delay={0.1}>
-              <div className="card-warm">
-                <h3 className="font-serif text-lg text-brown-deep mb-4">Office Hours</h3>
-                <div className="space-y-3 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-brown-muted">Sunday</span>
-                    <span className="text-brown-deep">{t('sundayHours')}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-brown-muted">Wednesday</span>
-                    <span className="text-brown-deep">{t('wednesdayHours')}</span>
-                  </div>
-                </div>
-              </div>
-            </RevealOnScroll>
-
-            {/* Map placeholder */}
-            <RevealOnScroll direction="right" delay={0.15}>
-              <div
-                className="rounded-2xl h-52 flex items-center justify-center shadow-warm"
-                style={{ background: 'linear-gradient(135deg, #EAF0FA, #E8D9A0)' }}
-              >
-                <div className="text-center">
-                  <p className="text-4xl mb-2">🗺</p>
-                  <p className="text-brown-mid font-serif">Bikfaya, Lebanon</p>
-                </div>
+              <div className="rounded-2xl overflow-hidden shadow-warm-md border border-gold-light">
+                <iframe
+                  src="https://www.google.com/maps?q=Bikfaya+Baptist+Church,+Bikfaya,+Lebanon&output=embed"
+                  width="100%"
+                  height="280"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Bikfaya Baptist Church location"
+                />
               </div>
             </RevealOnScroll>
           </div>

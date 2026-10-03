@@ -30,7 +30,7 @@ export default function Footer() {
                 <CrossIcon size={18} color="white" />
               </div>
               <div>
-                <p className="font-serif text-white font-semibold">Bikfaya Baptist</p>
+                <p className="font-serif text-white font-semibold">Bikfaya Baptist Church</p>
                 <p className="text-amber-400 text-xs">Bikfaya, Lebanon</p>
               </div>
             </div>

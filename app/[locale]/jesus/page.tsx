@@ -29,7 +29,6 @@ export default async function JesusPage({ params: { locale } }: { params: { loca
         { title: t('step1Title'), text: t('step1Text'), icon: '✝' },
         { title: t('step2Title'), text: t('step2Text'), icon: '💔' },
         { title: t('step3Title'), text: t('step3Text'), icon: '⚖' },
-        { title: t('step4Title'), text: t('step4Text'), icon: '🙏' },
       ];
 
   const whoImageUrl = sanityImageUrl(cms?.whoImage);

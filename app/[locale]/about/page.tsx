@@ -17,8 +17,6 @@ export default function AboutPage() {
   const t = useTranslations('about');
   const locale = useLocale();
   const [activeTab, setActiveTab] = useState<Tab>('beliefs');
-  const [staffSearch, setStaffSearch] = useState('');
-  const [staffRole, setStaffRole] = useState('All');
 
   const tabs: { key: Tab; label: string }[] = [
     { key: 'beliefs', label: t('tabBeliefs') },
@@ -78,47 +76,9 @@ export default function AboutPage() {
             <div className="container-church">
               <RevealOnScroll><SectionHeader label={t('leadershipLabel')} title={t('leadershipTitle')} /></RevealOnScroll>
 
-              {/* Pastor search + role filter */}
-              <RevealOnScroll>
-                <div className="max-w-5xl mx-auto mb-8 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-                  <div className="relative w-full sm:w-64">
-                    <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-brown-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-                    </svg>
-                    <input
-                      type="search"
-                      value={staffSearch}
-                      onChange={e => setStaffSearch(e.target.value)}
-                      placeholder={locale === 'ar' ? 'ابحث عن راعٍ...' : 'Search pastors...'}
-                      className="input-warm pl-9 py-2 text-sm"
-                    />
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {['All', 'Senior Pastor', 'Assistant Pastor', 'Young Adult Pastor'].map(role => (
-                      <button
-                        key={role}
-                        onClick={() => setStaffRole(role)}
-                        className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
-                          staffRole === role
-                            ? 'bg-gold text-white border-gold'
-                            : 'border-gold-light text-brown-mid hover:border-gold hover:text-gold bg-white'
-                        }`}
-                      >
-                        {role === 'All' ? (locale === 'ar' ? 'الجميع' : 'All') : role}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </RevealOnScroll>
-
               {/* Pastoral Staff */}
               {(() => {
-                const pastors = fallbackStaff.filter(m => m.staffType !== 'deacon').filter(m => {
-                  const name = locale === 'ar' ? m.nameAr : m.name;
-                  const matchesSearch = !staffSearch || name.toLowerCase().includes(staffSearch.toLowerCase());
-                  const matchesRole = staffRole === 'All' || m.role === staffRole;
-                  return matchesSearch && matchesRole;
-                });
+                const pastors = fallbackStaff.filter(m => m.staffType !== 'deacon');
                 return pastors.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
                     {pastors.map((member, i) => (

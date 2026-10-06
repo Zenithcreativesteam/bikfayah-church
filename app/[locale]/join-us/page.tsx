@@ -31,13 +31,13 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
         title: (ar ? s.titleAr : s.title) ?? s.title,
         time: (ar ? s.timeAr : s.time) ?? s.time,
         note: (ar ? s.noteAr : s.note) ?? '',
-        icon: s.icon ?? '⛪',
+        icon: s.icon ?? 'âª',
       }))
     : [
-        { title: t('sundayTitle'), time: t('sundayTime'), note: t('sundayNote'), icon: '⛪' },
-        { title: t('sundaySchoolTitle'), time: t('sundaySchoolTime'), note: t('sundaySchoolNote'), icon: '📖' },
-        { title: t('wednesdayTitle'), time: t('wednesdayTime'), note: t('wednesdayNote'), icon: '🕯' },
-        { title: t('youthTitle'), time: t('youthTime'), note: t('youthNote'), icon: '✨' },
+        { title: t('sundayTitle'), time: t('sundayTime'), note: t('sundayNote'), icon: 'âª' },
+        { title: t('sundaySchoolTitle'), time: t('sundaySchoolTime'), note: t('sundaySchoolNote'), icon: 'ð' },
+        { title: t('wednesdayTitle'), time: t('wednesdayTime'), note: t('wednesdayNote'), icon: 'ð¯' },
+        { title: t('youthTitle'), time: t('youthTime'), note: t('youthNote'), icon: 'â¨' },
       ];
 
   const faqItems = cmsFaq?.length
@@ -90,18 +90,22 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
               {siteSettings?.mapEmbedUrl ? (
                 <iframe src={siteSettings.mapEmbedUrl} className="w-full h-64 rounded-2xl shadow-warm-md border-0" allowFullScreen loading="lazy" title="Church location" />
               ) : (
-                <div className="rounded-2xl h-64 flex items-center justify-center shadow-warm-md" style={{ background: 'linear-gradient(135deg, #EAF0FA, #E8D9A0)' }}>
-                  <div className="text-center"><p className="text-5xl mb-3">🗺</p><p className="text-brown-mid font-serif text-lg">Bikfaya, Lebanon</p><p className="text-brown-muted text-sm">Mount Lebanon Governorate</p></div>
-                </div>
+                <iframe
+                  src="https://maps.google.com/maps?q=33.9215358,35.6867228&z=17&output=embed"
+                  className="w-full h-64 rounded-2xl shadow-warm-md border-0"
+                  allowFullScreen
+                  loading="lazy"
+                  title="Bikfaya Baptist Church location"
+                />
               )}
             </RevealOnScroll>
             <RevealOnScroll direction="right" delay={0.1}>
               <div className="card-warm h-full flex flex-col justify-center">
                 <h3 className="font-serif text-xl text-brown-deep mb-4">{siteSettings?.address ?? t('locationAddress')}</h3>
                 <ul className="space-y-3 text-brown-mid text-sm mb-6">
-                  <li className="flex items-center gap-3"><span className="text-gold text-lg">📍</span><span>{siteSettings?.address ?? 'Bikfaya, Mount Lebanon, Lebanon'}</span></li>
-                  {siteSettings?.phone && <li className="flex items-center gap-3"><span className="text-gold text-lg">📞</span><a href={`tel:${siteSettings.phone}`} className="hover:text-gold transition-colors">{siteSettings.phone}</a></li>}
-                  {siteSettings?.email && <li className="flex items-center gap-3"><span className="text-gold text-lg">✉</span><a href={`mailto:${siteSettings.email}`} className="hover:text-gold transition-colors">{siteSettings.email}</a></li>}
+                  <li className="flex items-center gap-3"><span className="text-gold text-lg">ð</span><span>{siteSettings?.address ?? 'Bikfaya, Mount Lebanon, Lebanon'}</span></li>
+                  {siteSettings?.phone && <li className="flex items-center gap-3"><span className="text-gold text-lg">ð</span><a href={`tel:${siteSettings.phone}`} className="hover:text-gold transition-colors">{siteSettings.phone}</a></li>}
+                  {siteSettings?.email && <li className="flex items-center gap-3"><span className="text-gold text-lg">â</span><a href={`mailto:${siteSettings.email}`} className="hover:text-gold transition-colors">{siteSettings.email}</a></li>}
                 </ul>
                 <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-gold self-start">{t('locationDirections')}</a>
               </div>
@@ -119,7 +123,7 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
       >
         <div className="container-church max-w-3xl text-center relative z-10">
           <RevealOnScroll>
-            <p className="text-5xl mb-6">👨‍👩‍👧‍👦</p>
+            <p className="text-5xl mb-6">ð¨âð©âð§âð¦</p>
             <p className="label-gold text-amber-400 mb-4">{t('familiesLabel')}</p>
             <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">{(ar ? cms?.familiesTitleAr : cms?.familiesTitle) ?? t('familiesTitle')}</h2>
             <div className="w-24 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #B8860B, transparent)' }} />

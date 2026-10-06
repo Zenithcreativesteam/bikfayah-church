@@ -80,24 +80,37 @@ export default function AboutPage() {
               {(() => {
                 const pastors = fallbackStaff.filter(m => m.staffType !== 'deacon');
                 return pastors.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
-                    {pastors.map((member, i) => (
-                      <RevealOnScroll key={member._id} delay={i * 0.1}>
-                        <StaffCard member={member} locale={locale} />
-                      </RevealOnScroll>
+                  {/* Senior Pastor row */}
+                  <div className="flex justify-center mb-10">
+                    {pastors.slice(0, 1).map(member => (
+                      <div key={member._id} className="w-full max-w-sm">
+                        <RevealOnScroll delay={0}>
+                          <StaffCard member={member} locale={locale} />
+                        </RevealOnScroll>
+                      </div>
                     ))}
                   </div>
+                  {/* Associate Pastors row */}
+                  {pastors.length > 1 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-16">
+                      {pastors.slice(1).map((member, i) => (
+                        <RevealOnScroll key={member._id} delay={i * 0.1}>
+                          <StaffCard member={member} locale={locale} />
+                        </RevealOnScroll>
+                      ))}
+                    </div>
+                  )}
                 ) : (
                   <div className="text-center py-10 text-brown-muted mb-16">
-                    {locale === 'ar' ? 'ÙØ§ ØªÙØ¬Ø¯ ÙØªØ§Ø¦Ø¬' : 'No results found'}
+                    {locale === 'ar' ? 'ÃÂÃÂ§ ÃÂªÃÂÃÂ¬ÃÂ¯ ÃÂÃÂªÃÂ§ÃÂ¦ÃÂ¬' : 'No results found'}
                   </div>
                 );
               })()}
               {/* Deacon Board */}
               <RevealOnScroll>
                 <div className="text-center mb-8">
-                  <p className="label-gold mb-2">{locale === 'ar' ? 'ÙØ¬ÙØ³ Ø§ÙØ´ÙØ§ÙØ³Ø©' : 'Deacon Board'}</p>
-                  <h3 className="font-serif text-3xl text-brown-deep">{locale === 'ar' ? 'Ø§ÙØ´ÙØ§ÙØ³Ø©' : 'Our Deacons'}</h3>
+                  <p className="label-gold mb-2">{locale === 'ar' ? 'ÃÂÃÂ¬ÃÂÃÂ³ ÃÂ§ÃÂÃÂ´ÃÂÃÂ§ÃÂÃÂ³ÃÂ©' : 'Deacon Board'}</p>
+                  <h3 className="font-serif text-3xl text-brown-deep">{locale === 'ar' ? 'ÃÂ§ÃÂÃÂ´ÃÂÃÂ§ÃÂÃÂ³ÃÂ©' : 'Our Deacons'}</h3>
                   <div className="gold-divider mt-3" />
                 </div>
               </RevealOnScroll>

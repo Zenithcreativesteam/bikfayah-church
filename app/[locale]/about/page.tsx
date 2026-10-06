@@ -89,15 +89,15 @@ export default function AboutPage() {
                   </div>
                 ) : (
                   <div className="text-center py-10 text-brown-muted mb-16">
-                    {locale === 'ar' ? 'لا توجد نتائج' : 'No results found'}
+                    {locale === 'ar' ? 'ÙØ§ ØªÙØ¬Ø¯ ÙØªØ§Ø¦Ø¬' : 'No results found'}
                   </div>
                 );
               })()}
               {/* Deacon Board */}
               <RevealOnScroll>
                 <div className="text-center mb-8">
-                  <p className="label-gold mb-2">{locale === 'ar' ? 'مجلس الشمامسة' : 'Deacon Board'}</p>
-                  <h3 className="font-serif text-3xl text-brown-deep">{locale === 'ar' ? 'الشمامسة' : 'Our Deacons'}</h3>
+                  <p className="label-gold mb-2">{locale === 'ar' ? 'ÙØ¬ÙØ³ Ø§ÙØ´ÙØ§ÙØ³Ø©' : 'Deacon Board'}</p>
+                  <h3 className="font-serif text-3xl text-brown-deep">{locale === 'ar' ? 'Ø§ÙØ´ÙØ§ÙØ³Ø©' : 'Our Deacons'}</h3>
                   <div className="gold-divider mt-3" />
                 </div>
               </RevealOnScroll>
@@ -121,7 +121,7 @@ export default function AboutPage() {
           <motion.section key="history" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="section-warm">
             <div className="container-church max-w-4xl">
               <RevealOnScroll><SectionHeader label={t('historyLabel')} title={t('historyTitle')} /></RevealOnScroll>
-              <div className="space-y-10">
+              <div className="space-y-10 relative before:content-[''] before:absolute before:top-7 before:bottom-7 before:left-1/2 before:-translate-x-1/2 before:w-0.5 before:bg-gold/30 before:hidden md:before:block">
                 {timeline.map((item, i) => (
                   <RevealOnScroll key={item.year} delay={i * 0.08}>
                     <div className={`flex flex-col md:flex-row gap-6 items-center md:items-start ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
@@ -131,7 +131,7 @@ export default function AboutPage() {
                       </div>
                       <div className="flex flex-col items-center gap-2 flex-shrink-0 z-10">
                         <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-warm-md" style={{ background: 'linear-gradient(135deg, #B8860B, #D4A853)', color: 'white' }}>
-                          <span className="font-serif text-xs font-bold text-center leading-tight px-1">{item.year}</span>
+                          <span className="font-serif text-sm font-bold text-center leading-tight px-1">{item.year}</span>
                         </div>
                       </div>
                       <div className="flex-1 hidden md:block" />

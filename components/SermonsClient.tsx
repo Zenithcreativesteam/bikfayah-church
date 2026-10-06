@@ -29,6 +29,7 @@ export default function SermonsClient({ sermons }: SermonsClientProps) {
   const [query, setQuery] = useState('');
   const [activeSpeaker, setActiveSpeaker] = useState('');
   const [activeTopic, setActiveTopic] = useState('');
+  const [activeBook, setActiveBook] = useState('');
 
   const featured = sermons.find(s => s.featured) ?? sermons[0];
   const rest = sermons.filter(s => !s.featured);
@@ -46,7 +47,8 @@ export default function SermonsClient({ sermons }: SermonsClientProps) {
       const matchesSpeaker = !activeSpeaker || s.speaker.includes(activeSpeaker);
       const matchesTopic = !activeTopic || (s.tags ?? []).includes(activeTopic) ||
         title.toLowerCase().includes(activeTopic.toLowerCase());
-      return matchesQuery && matchesSpeaker && matchesTopic;
+      const matchesBook = !activeBook || (item.scripture ? item.scripture.includes(activeBook) : true);
+      return matchesQuery && matchesSpeaker && matchesTopic && matchesBook;
     });
   }, [rest, query, activeSpeaker, activeTopic, locale]);
 
@@ -57,7 +59,7 @@ export default function SermonsClient({ sermons }: SermonsClientProps) {
     <section className="section-warm">
       <div className="container-church">
 
-        {/* ── Search ── */}
+        {/* ââ Search ââ */}
         <RevealOnScroll>
           <div className="relative max-w-xl mx-auto mb-10">
             <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-brown-muted" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -73,37 +75,25 @@ export default function SermonsClient({ sermons }: SermonsClientProps) {
           </div>
         </RevealOnScroll>
 
-        {/* ── Filter sections ── */}
+        {/* ââ Filter sections ââ */}
         <RevealOnScroll delay={0.05}>
           <div className="bg-white rounded-2xl border border-gold-light shadow-warm p-6 mb-12 space-y-6">
 
-            {/* The Speakers */}
+            {/* Preacher Dropdown */}
             <div>
               <p className="text-xs font-sans font-semibold uppercase tracking-widest text-gold mb-3">
-                {locale === 'ar' ? 'المتحدثون' : 'The Speakers'}
+                {locale === 'ar' ? 'الواعظ' : 'Preacher'}
               </p>
-              <div className="flex flex-wrap gap-2">
+              <select
+                value={activeSpeaker}
+                onChange={e => setActiveSpeaker(e.target.value)}
+                className="input-warm w-full max-w-xs"
+              >
+                <option value="">— {locale === 'ar' ? 'جميع الوعاظ' : 'All Preachers'} —</option>
                 {SPEAKERS.map(s => (
-                  <button
-                    key={s.key}
-                    onClick={() => toggle(s.key, activeSpeaker, setActiveSpeaker)}
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border transition-all ${
-                      activeSpeaker === s.key
-                        ? 'bg-navy text-white border-navy shadow-sm'
-                        : 'border-gold-light text-brown-mid hover:border-navy hover:text-navy bg-white'
-                    }`}
-                  >
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${
-                      activeSpeaker === s.key ? 'bg-white/20 text-white' : 'text-white'
-                    }`}
-                      style={{ background: activeSpeaker === s.key ? 'rgba(255,255,255,0.2)' : 'linear-gradient(135deg, #B8860B, #D4A853)' }}
-                    >
-                      {s.initials}
-                    </span>
-                    {s.label}
-                  </button>
+                  <option key={s.key} value={s.key}>{s.label}</option>
                 ))}
-              </div>
+              </select>
             </div>
 
             {/* Divider */}
@@ -112,7 +102,7 @@ export default function SermonsClient({ sermons }: SermonsClientProps) {
             {/* Topics */}
             <div>
               <p className="text-xs font-sans font-semibold uppercase tracking-widest text-gold mb-3">
-                {locale === 'ar' ? 'المواضيع' : 'Topics'}
+                {locale === 'ar' ? 'Ø§ÙÙÙØ§Ø¶ÙØ¹' : 'Topics'}
               </p>
               <div className="flex flex-wrap gap-2">
                 {TOPICS.map(topic => (
@@ -131,8 +121,25 @@ export default function SermonsClient({ sermons }: SermonsClientProps) {
               </div>
             </div>
 
+            {/* Bible Book Dropdown */}
+            <div>
+              <p className="text-xs font-sans font-semibold uppercase tracking-widest text-gold mb-3">
+                {locale === 'ar' ? 'سفر الكتاب المقدس' : 'Bible Book'}
+              </p>
+              <select
+                value={activeBook}
+                onChange={e => setActiveBook(e.target.value)}
+                className="input-warm w-full max-w-xs"
+              >
+                <option value="">— {locale === 'ar' ? 'جميع الأسفار' : 'All Books'} —</option>
+                {['Genesis','Exodus','Psalms','Proverbs','Isaiah','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Timothy','2 Timothy','Hebrews','James','1 Peter','2 Peter','1 John','Revelation'].map(book => (
+                  <option key={book} value={book}>{book}</option>
+                ))}
+              </select>
+            </div>
+
             {/* Active filters summary + clear */}
-            {(activeSpeaker || activeTopic || query) && (
+            {(activeSpeaker || activeTopic || activeBook || query) && (
               <div className="flex items-center justify-between pt-1 border-t border-gold-light">
                 <p className="text-xs text-brown-muted">
                   {filtered.length} {filtered.length === 1 ? 'result' : 'results'}
@@ -140,17 +147,17 @@ export default function SermonsClient({ sermons }: SermonsClientProps) {
                   {activeTopic && <span className="ml-2 px-2 py-0.5 bg-gold/10 text-gold rounded-full">{activeTopic}</span>}
                 </p>
                 <button
-                  onClick={() => { setActiveSpeaker(''); setActiveTopic(''); setQuery(''); }}
+                  onClick={() => { setActiveSpeaker(''); setActiveBook(''); setActiveTopic(''); setQuery(''); }}
                   className="text-xs text-brown-muted hover:text-brown-deep underline"
                 >
-                  {locale === 'ar' ? 'مسح الكل' : 'Clear all'}
+                  {locale === 'ar' ? 'ÙØ³Ø­ Ø§ÙÙÙ' : 'Clear all'}
                 </button>
               </div>
             )}
           </div>
         </RevealOnScroll>
 
-        {/* ── Featured ── */}
+        {/* ââ Featured ââ */}
         {featured && (
           <div className="mb-16">
             <RevealOnScroll>
@@ -166,7 +173,7 @@ export default function SermonsClient({ sermons }: SermonsClientProps) {
           </div>
         )}
 
-        {/* ── Grid ── */}
+        {/* ââ Grid ââ */}
         {rest.length === 0 && !featured ? (
           <div className="text-center py-16 text-brown-muted">{t('noResults')}</div>
         ) : filtered.length === 0 ? (

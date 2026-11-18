@@ -6,6 +6,7 @@ import ServiceTimeCard from '@/components/ServiceTimeCard';
 import Accordion from '@/components/Accordion';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import { safeFetch, sanityImageUrl, queries } from '@/lib/sanity-fetch';
+import { churchImages } from '@/lib/church-images';
 import { fallbackServiceTimes } from '@/lib/fallback-data';
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
@@ -23,8 +24,8 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
     safeFetch<any[]>(queries.faqItems),
   ]);
 
-  const heroImageUrl = sanityImageUrl(cms?.heroImage);
-  const familiesImageUrl = sanityImageUrl(cms?.familiesImage);
+  const heroImageUrl = sanityImageUrl(cms?.heroImage) ?? churchImages.joinUsHero;
+  const familiesImageUrl = sanityImageUrl(cms?.familiesImage) ?? churchImages.joinUsFamilies;
 
   const serviceTimes = cmsServiceTimes?.length
     ? cmsServiceTimes.map((s: any) => ({

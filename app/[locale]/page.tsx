@@ -12,6 +12,7 @@ import RevealOnScroll from '@/components/RevealOnScroll';
 import VerseBlock from '@/components/VerseBlock';
 import { fallbackSermons, fallbackServiceTimes } from '@/lib/fallback-data';
 import { safeFetch, sanityImageUrl, queries } from '@/lib/sanity-fetch';
+import { churchImages } from '@/lib/church-images';
 import { fetchYouTubeVideos, youtubeToSermons } from '@/lib/youtube';
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
@@ -33,8 +34,8 @@ export default async function HomePage({ params: { locale } }: { params: { local
     fetchYouTubeVideos(),
   ]);
 
-  const heroImageUrl = sanityImageUrl(cms?.heroImage);
-  const welcomeImageUrl = sanityImageUrl(cms?.welcomeImage);
+  const heroImageUrl = sanityImageUrl(cms?.heroImage) ?? churchImages.homeHero;
+  const welcomeImageUrl = sanityImageUrl(cms?.welcomeImage) ?? churchImages.homeWelcome;
   const heroTitle = (locale === 'ar' ? cms?.heroTitleAr : cms?.heroTitle) ?? t('heroTitle');
   const heroSubtitle = (locale === 'ar' ? cms?.heroSubtitleAr : cms?.heroSubtitle) ?? t('heroSubtitle');
   const heroLabel = (locale === 'ar' ? cms?.heroLabelAr : cms?.heroLabel) ?? t('heroLabel');
@@ -112,7 +113,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           </RevealOnScroll>
           <RevealOnScroll direction="right" delay={0.15}>
             {welcomeImageUrl ? (
-              <img src={welcomeImageUrl} alt="Welcome" className="rounded-3xl shadow-warm-lg w-full h-80 object-cover" />
+              <img src={welcomeImageUrl} alt="Bikfaya Baptist Church sanctuary" className="rounded-3xl shadow-warm-lg w-full h-80 object-cover" />
             ) : (
               <div className="relative rounded-3xl overflow-hidden shadow-warm-lg flex items-center justify-center min-h-80" style={{ background: 'linear-gradient(135deg, #0F2044, #1B3A6B)' }}>
                 <div className="text-center p-10 text-blue-100">

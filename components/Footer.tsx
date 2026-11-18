@@ -15,6 +15,7 @@ export default function Footer() {
     { key: 'about', href: `/${locale}/about` },
     { key: 'community', href: `/${locale}/community` },
     { key: 'sermons', href: `/${locale}/sermons` },
+    { key: 'gallery', href: `/${locale}/gallery` },
     { key: 'joinUs', href: `/${locale}/join-us` },
     { key: 'contact', href: `/${locale}/contact` },
   ];

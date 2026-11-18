@@ -6,6 +6,7 @@ import SectionHeader from '@/components/SectionHeader';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import VerseBlock from '@/components/VerseBlock';
 import { safeFetch, sanityImageUrl, queries } from '@/lib/sanity-fetch';
+import { churchImages } from '@/lib/church-images';
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'jesus' });
@@ -17,7 +18,7 @@ export default async function JesusPage({ params: { locale } }: { params: { loca
   const cms = await safeFetch<any>(queries.jesusPage);
 
   const ar = locale === 'ar';
-  const heroImageUrl = sanityImageUrl(cms?.heroImage);
+  const heroImageUrl = sanityImageUrl(cms?.heroImage) ?? churchImages.jesusHero;
 
   const steps = cms?.gospelSteps?.length
     ? cms.gospelSteps.map((s: any) => ({
@@ -32,7 +33,7 @@ export default async function JesusPage({ params: { locale } }: { params: { loca
         { title: t('step4Title'), text: t('step4Text'), icon: '🙏' },
       ];
 
-  const whoImageUrl = sanityImageUrl(cms?.whoImage);
+  const whoImageUrl = sanityImageUrl(cms?.whoImage) ?? churchImages.jesusWho;
   const prayerImageUrl = sanityImageUrl(cms?.prayerImage);
 
   return (

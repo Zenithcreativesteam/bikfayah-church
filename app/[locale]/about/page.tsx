@@ -9,6 +9,7 @@ import Accordion from '@/components/Accordion';
 import StaffCard from '@/components/StaffCard';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import { fallbackStaff } from '@/lib/fallback-data';
+import { churchImages } from '@/lib/church-images';
 
 // NOTE: This page uses client components (tabs); Sanity data is passed as props
 // from a server wrapper in production. For now, it falls back gracefully.
@@ -47,7 +48,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <HeroSection label={t('heroLabel')} title={t('heroTitle')} subtitle={t('heroSubtitle')} />
+      <HeroSection label={t('heroLabel')} title={t('heroTitle')} subtitle={t('heroSubtitle')} backgroundImageUrl={churchImages.aboutHero} />
 
       <div className="sticky top-16 md:top-20 z-30 bg-warm-white border-b border-gold-light shadow-warm-sm">
         <div className="container-church max-w-6xl mx-auto px-4">
@@ -131,7 +132,7 @@ export default function AboutPage() {
                               <div className="bg-white rounded-2xl shadow-warm border border-gold-light p-8 flex gap-6 items-start">
                                 {member.photo ? (
                                   <div className="w-20 h-20 rounded-full flex-shrink-0 overflow-hidden">
-                                    <img src={member.photo} alt={member.name} className="w-full h-full object-cover" style={{ objectPosition: member.photoPosition ?? 'center top', transform: member.photoScale ? `scale(${member.photoScale})` : undefined, transformOrigin: 'center 20%' }} />
+                                    <img src={member.photo} alt={member.name} className="w-full h-full object-cover" style={{ objectPosition: member.photoPosition ?? 'center top', transform: member.photoScale ? `scale(${member.photoScale})` : undefined, transformOrigin: 'center center' }} />
                                   </div>
                                 ) : (
                                   <div className="w-20 h-20 rounded-full flex-shrink-0 flex items-center justify-center font-serif text-xl font-semibold text-white" style={{ background: 'linear-gradient(135deg, #B8860B, #D4A853)' }}>
@@ -170,7 +171,7 @@ export default function AboutPage() {
                     <div className="bg-white rounded-2xl border border-gold-light shadow-warm text-center py-8 px-4">
                       {member.photo ? (
                         <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden">
-                          <img src={member.photo} alt={member.name} className="w-full h-full object-cover" style={{ objectPosition: member.photoPosition ?? 'center top', transform: member.photoScale ? `scale(${member.photoScale})` : undefined, transformOrigin: 'center 20%' }} />
+                          <img src={member.photo} alt={member.name} className="w-full h-full object-cover" style={{ objectPosition: member.photoPosition ?? 'center top', transform: member.photoScale ? `scale(${member.photoScale})` : undefined, transformOrigin: 'center center' }} />
                         </div>
                       ) : (
                         <div className="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center font-serif text-xl font-semibold text-white" style={{ background: 'linear-gradient(135deg, #1B3A6B, #2C4F8A)' }}>

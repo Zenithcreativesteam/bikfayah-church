@@ -7,6 +7,7 @@ import SectionHeader from '@/components/SectionHeader';
 import TestimonialCard from '@/components/TestimonialCard';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import { fallbackTestimonials } from '@/lib/fallback-data';
+import { churchImages } from '@/lib/church-images';
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'community' });
@@ -19,7 +20,7 @@ function CommunityContent({ locale }: { locale: string }) {
   return (
     <>
       {/* Hero — CTA lives inside the hero, no awkward separate section */}
-      <HeroSection label={t('heroLabel')} title={t('heroTitle')} subtitle={t('heroSubtitle')}>
+      <HeroSection label={t('heroLabel')} title={t('heroTitle')} subtitle={t('heroSubtitle')} backgroundImageUrl={churchImages.communityHero}>
         <Link href={`/${locale}/join-us`} className="btn-gold text-base px-8 py-3">
           {t('heroCtaJoinUs')}
         </Link>
@@ -45,12 +46,11 @@ function CommunityContent({ locale }: { locale: string }) {
             </div>
           </RevealOnScroll>
           <RevealOnScroll direction="right" delay={0.1}>
-            <div
-              className="rounded-3xl h-64 flex items-center justify-center shadow-warm-lg"
-              style={{ background: 'linear-gradient(135deg, #EAF0FA, #D8E4F5)' }}
-            >
-              <span className="text-6xl">✨</span>
-            </div>
+            <img
+              src={churchImages.communityYouth}
+              alt={locale === 'ar' ? 'شباب الكنيسة في رحلة' : 'Church youth on a hike'}
+              className="rounded-3xl h-64 w-full object-cover shadow-warm-lg"
+            />
           </RevealOnScroll>
         </div>
       </section>
@@ -60,8 +60,8 @@ function CommunityContent({ locale }: { locale: string }) {
         <div className="container-church grid md:grid-cols-2 gap-12 items-center">
           <RevealOnScroll direction="left">
             <div
-              className="rounded-3xl h-64 flex items-center justify-center shadow-warm-lg order-2 md:order-1"
-              style={{ background: 'linear-gradient(135deg, #0F2044, #1B3A6B)' }}
+              className="rounded-3xl h-64 flex items-center justify-center shadow-warm-lg order-2 md:order-1 bg-cover bg-center"
+              style={{ backgroundImage: `linear-gradient(rgba(15,32,68,0.7), rgba(15,32,68,0.7)), url(${churchImages.communityBible})` }}
             >
               <p className="font-serif text-white italic text-xl px-8 text-center">
                 "Your word is a lamp to my feet"

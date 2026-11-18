@@ -4,6 +4,7 @@ import HeroSection from '@/components/HeroSection';
 import SermonsClient from '@/components/SermonsClient';
 import { fetchYouTubeVideos, youtubeToSermons } from '@/lib/youtube';
 import { fallbackSermons } from '@/lib/fallback-data';
+import { churchImages } from '@/lib/church-images';
 
 export const revalidate = 3600; // re-render page at most once per hour
 
@@ -26,6 +27,7 @@ export default async function SermonsPage({ params: { locale } }: { params: { lo
         title={t('heroTitle')}
         subtitle={t('heroSubtitle')}
         minHeight="min-h-[55vh]"
+        backgroundImageUrl={churchImages.sermonsHero}
       />
       <SermonsClient sermons={sermons} />
     </>

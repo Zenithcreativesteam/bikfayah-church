@@ -6,10 +6,10 @@ import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import CrossIcon from './CrossIcon';
 
-const navKeys = ['home', 'jesus', 'about', 'community', 'sermons'] as const;
+const navKeys = ['home', 'jesus', 'about', 'community', 'sermons', 'gallery'] as const;
 const navPaths: Record<string, string> = {
   home: '/', jesus: '/jesus', about: '/about',
-  community: '/community', sermons: '/sermons',
+  community: '/community', sermons: '/sermons', gallery: '/gallery',
 };
 
 export default function Navbar() {

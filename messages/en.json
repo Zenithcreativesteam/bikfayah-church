@@ -5,6 +5,7 @@
     "about": "About",
     "community": "Community",
     "sermons": "Sermons",
+    "gallery": "Gallery",
     "joinUs": "Join Us",
     "contact": "Contact",
     "lang": "EN",
@@ -282,5 +283,14 @@
     "loading": "Loading...",
     "min": "min",
     "play": "Play"
+  },
+  "gallery": {
+    "heroLabel": "Our Church Family",
+    "heroTitle": "Gallery",
+    "heroSubtitle": "Moments of worship, fellowship and life together at Bikfaya Baptist Church.",
+    "close": "Close",
+    "prev": "Previous",
+    "next": "Next",
+    "photoAlt": "Bikfaya Baptist Church photo"
   }
 }

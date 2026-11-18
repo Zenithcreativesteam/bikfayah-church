@@ -90,7 +90,7 @@ export default function AboutPage() {
                           <div className="grid md:grid-cols-2 gap-0">
                             <div className="flex items-center justify-center min-h-64 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0F2044, #1B3A6B)' }}>
                               {senior.photo ? (
-                                <img src={senior.photo} alt={senior.name} className="w-full h-full object-cover object-top" style={{ minHeight: '16rem' }} />
+                                <img src={senior.photo} alt={senior.name} className="w-full h-full object-cover" style={{ minHeight: '16rem', objectPosition: senior.photoPosition ?? 'center top' }} />
                               ) : (
                                 <div className="text-center p-10">
                                   <div className="w-28 h-28 rounded-full mx-auto mb-4 flex items-center justify-center font-serif text-3xl font-semibold text-white" style={{ background: 'linear-gradient(135deg, #B8860B, #D4A853)' }}>
@@ -130,7 +130,9 @@ export default function AboutPage() {
                             <RevealOnScroll key={member._id} delay={i * 0.1}>
                               <div className="bg-white rounded-2xl shadow-warm border border-gold-light p-8 flex gap-6 items-start">
                                 {member.photo ? (
-                                  <img src={member.photo} alt={member.name} className="w-20 h-20 rounded-full flex-shrink-0 object-cover object-top" />
+                                  <div className="w-20 h-20 rounded-full flex-shrink-0 overflow-hidden">
+                                    <img src={member.photo} alt={member.name} className="w-full h-full object-cover" style={{ objectPosition: member.photoPosition ?? 'center top', transform: member.photoScale ? `scale(${member.photoScale})` : undefined, transformOrigin: 'center 20%' }} />
+                                  </div>
                                 ) : (
                                   <div className="w-20 h-20 rounded-full flex-shrink-0 flex items-center justify-center font-serif text-xl font-semibold text-white" style={{ background: 'linear-gradient(135deg, #B8860B, #D4A853)' }}>
                                     {member.initials}
@@ -167,7 +169,9 @@ export default function AboutPage() {
                   <RevealOnScroll key={member._id} delay={i * 0.08}>
                     <div className="bg-white rounded-2xl border border-gold-light shadow-warm text-center py-8 px-4">
                       {member.photo ? (
-                        <img src={member.photo} alt={member.name} className="w-20 h-20 rounded-full mx-auto mb-4 object-cover object-top" />
+                        <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden">
+                          <img src={member.photo} alt={member.name} className="w-full h-full object-cover" style={{ objectPosition: member.photoPosition ?? 'center top', transform: member.photoScale ? `scale(${member.photoScale})` : undefined, transformOrigin: 'center 20%' }} />
+                        </div>
                       ) : (
                         <div className="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center font-serif text-xl font-semibold text-white" style={{ background: 'linear-gradient(135deg, #1B3A6B, #2C4F8A)' }}>
                           {member.initials}

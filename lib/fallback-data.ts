@@ -33,6 +33,8 @@ export interface StaffMember {
   initials: string;
   staffType?: 'pastor' | 'deacon';
   photo?: string;
+  photoPosition?: string; // CSS object-position, e.g. 'center 20%'
+  photoScale?: string;    // CSS transform scale for zoom adjustment
 }
 
 export interface Testimonial {
@@ -199,6 +201,8 @@ export const fallbackStaff: StaffMember[] = [
     roleAr: 'القس الرئيسي',
     staffType: 'pastor',
     initials: 'SK',
+    photo: '/staff/samuel.jpg',
+    photoPosition: 'center 15%',
     bio: 'Pastor Dr. Samuel Kharat has served Bikfaya Baptist Church since 1979. He is a graduate of the Arab Baptist Theological Seminary (ABTS) in Beirut and served as a professor of Pastoral Theology and Christian Counseling there from 1985 to 2019. He is the founder of ACME (Association of Counselling Ministry and Education) and holds a PhD in Psychological Counseling from Alabama, USA. He has also served as president of the Association of Evangelical Baptist Churches in Lebanon. He and his wife Rouda have two children and five grandchildren.',
     bioAr: 'القس الدكتور صمونيل الخرّاط راعي كنيسة بكفيّا البابتية الإنجيلية منذ عام ١٩٧٩. تخرّج من كلية اللاهوت المعمدانية العربية (ABTS) في بيروت، وخدم أستاذاً لمواد اللاهوت الراعوي والإرشاد المسيحي فيها من ١٩٨٥ حتى ٢٠١٩. مؤسس ورئيس مؤسسة «أكمي» للتعليم والإرشاد، وحاصل على درجة الدكتوراه في الإرشاد النفسي من ألاباما، أمريكا. خدم أيضاً رئيساً لمجمع الكنائس المعمدانية الإنجيلية في لبنان. متزوج من رودا الحمصي ولهما ولدان وخمسة أحفاد.',
   },
@@ -236,6 +240,8 @@ export const fallbackStaff: StaffMember[] = [
     staffType: 'deacon',
     initials: 'IS',
     photo: '/staff/essam.jpg',
+    photoPosition: 'center 15%',
+    photoScale: '0.85',
     bio: '',
     bioAr: '',
   },
@@ -248,6 +254,8 @@ export const fallbackStaff: StaffMember[] = [
     staffType: 'deacon',
     initials: 'JJ',
     photo: '/staff/joseph.jpg',
+    photoPosition: 'center 10%',
+    photoScale: '1.4',
     bio: '',
     bioAr: '',
   },
@@ -271,17 +279,6 @@ export const fallbackStaff: StaffMember[] = [
     roleAr: 'شماس',
     staffType: 'deacon',
     initials: 'MK',
-    bio: '',
-    bioAr: '',
-  },
-  {
-    _id: 'dc6',
-    name: 'Zeina Abdallah',
-    nameAr: 'زينة عبدالله',
-    role: 'Deacon',
-    roleAr: 'شماسة',
-    staffType: 'deacon',
-    initials: 'ZA',
     bio: '',
     bioAr: '',
   },

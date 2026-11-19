@@ -7,6 +7,7 @@ import RevealOnScroll from '@/components/RevealOnScroll';
 import VerseBlock from '@/components/VerseBlock';
 import { safeFetch, sanityImageUrl, queries } from '@/lib/sanity-fetch';
 import { churchImages } from '@/lib/church-images';
+import { CHURCH_WHATSAPP_URL } from '@/lib/church-location';
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'jesus' });
@@ -139,7 +140,7 @@ export default async function JesusPage({ params: { locale } }: { params: { loca
                 {ar ? 'تواصل معنا' : 'Get in Touch'}
               </Link>
               <a
-                href="https://wa.me/9611234567"
+                href={CHURCH_WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-amber-300 text-blue-100 px-6 py-3 rounded-full font-sans font-medium hover:bg-white hover:text-brown-deep transition-all"

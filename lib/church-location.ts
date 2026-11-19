@@ -4,3 +4,8 @@ export const CHURCH_MAPS_URL =
 
 export const CHURCH_MAPS_EMBED_URL =
   'https://maps.google.com/maps?q=Bikfaya%20Baptist%20Church%4033.9215358,35.6867228&z=16&output=embed';
+
+// Church phone / WhatsApp: +961 03 637 026. In international format the
+// Lebanese trunk "0" is dropped, so links use 961 3 637 026.
+export const CHURCH_PHONE_TEL = 'tel:+9613637026';
+export const CHURCH_WHATSAPP_URL = 'https://wa.me/9613637026';

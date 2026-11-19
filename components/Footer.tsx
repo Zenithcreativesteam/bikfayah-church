@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import CrossIcon from './CrossIcon';
-import { CHURCH_MAPS_URL } from '@/lib/church-location';
+import { CHURCH_MAPS_URL, CHURCH_PHONE_TEL } from '@/lib/church-location';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -113,7 +113,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-gold flex-shrink-0">📞</span>
-                <a href={`tel:${t('phone')}`} className="text-white/60 hover:text-white transition-colors">{t('phone')}</a>
+                <a href={CHURCH_PHONE_TEL} className="text-white/60 hover:text-white transition-colors">{t('phone')}</a>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-gold flex-shrink-0">✉</span>

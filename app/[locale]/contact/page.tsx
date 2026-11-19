@@ -6,7 +6,7 @@ import HeroSection from '@/components/HeroSection';
 import SectionHeader from '@/components/SectionHeader';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import { churchImages } from '@/lib/church-images';
-import { CHURCH_MAPS_URL, CHURCH_MAPS_EMBED_URL } from '@/lib/church-location';
+import { CHURCH_MAPS_URL, CHURCH_MAPS_EMBED_URL, CHURCH_PHONE_TEL } from '@/lib/church-location';
 
 type FormState = 'idle' | 'sending' | 'success' | 'error';
 
@@ -161,7 +161,7 @@ export default function ContactPage() {
                 <ul className="space-y-4 text-sm">
                   {[
                     { icon: '📍', value: t('address'), href: CHURCH_MAPS_URL, external: true },
-                    { icon: '📞', value: t('phone'), href: `tel:${t('phone')}` },
+                    { icon: '📞', value: t('phone'), href: CHURCH_PHONE_TEL },
                     { icon: '✉', value: t('email'), href: `mailto:${t('email')}` },
                   ].map(item => (
                     <li key={item.icon} className="flex items-start gap-3">

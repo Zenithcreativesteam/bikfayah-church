@@ -9,6 +9,10 @@ import RevealOnScroll from '@/components/RevealOnScroll';
 import { fallbackTestimonials } from '@/lib/fallback-data';
 import { churchImages } from '@/lib/church-images';
 
+// Testimonials are hidden while they're being redone (higher quality + videos).
+// Set to true to show the section again.
+const SHOW_TESTIMONIALS = false;
+
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'community' });
   return { title: 'Community', description: t('heroSubtitle') };
@@ -82,7 +86,8 @@ function CommunityContent({ locale }: { locale: string }) {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials (hidden for now, see SHOW_TESTIMONIALS) */}
+      {SHOW_TESTIMONIALS && (
       <section
         className="py-24 px-4 bg-cover bg-center"
         style={{ backgroundImage: `linear-gradient(rgba(15,32,68,0.88), rgba(15,32,68,0.88)), url(${churchImages.testimonialsBand})` }}
@@ -100,6 +105,7 @@ function CommunityContent({ locale }: { locale: string }) {
           </div>
         </div>
       </section>
+      )}
 
       {/* All Ministries & Upcoming Events — hidden until content is ready */}
     </>

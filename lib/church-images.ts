@@ -18,7 +18,7 @@ export const churchImages = {
   // Photo-led sections
   welcomeCollage: ['/church/church-60.jpg', '/church/church-21.jpg', '/church/church-32.jpg'],
   // Service time cards, in the same order as the service times list
-  serviceTimes: ['/church/church-44.jpg', '/church/church-15.jpg', '/church/church-12.jpg', '/church/church-03.jpg'],
+  serviceTimes: ['/church/church-44.jpg', '/church/church-15.jpg', '/church/church-64.jpg', '/church/church-03.jpg'],
   lifeTogether: ['/church/church-08.jpg', '/church/church-05.jpg', '/church/church-02.jpg', '/church/church-21.jpg', '/church/church-33.jpg', '/church/church-16.jpg'],
   gospelBand: '/church/church-54.jpg',
   jesusSteps: '/church/church-56.jpg',

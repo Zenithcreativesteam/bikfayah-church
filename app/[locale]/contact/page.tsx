@@ -6,6 +6,7 @@ import HeroSection from '@/components/HeroSection';
 import SectionHeader from '@/components/SectionHeader';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import { churchImages } from '@/lib/church-images';
+import { CHURCH_MAPS_URL, CHURCH_MAPS_EMBED_URL } from '@/lib/church-location';
 
 type FormState = 'idle' | 'sending' | 'success' | 'error';
 
@@ -159,14 +160,22 @@ export default function ContactPage() {
                 <h3 className="font-serif text-xl text-brown-deep mb-5">{t('infoTitle')}</h3>
                 <ul className="space-y-4 text-sm">
                   {[
-                    { icon: '📍', value: t('address') },
+                    { icon: '📍', value: t('address'), href: CHURCH_MAPS_URL, external: true },
                     { icon: '📞', value: t('phone'), href: `tel:${t('phone')}` },
                     { icon: '✉', value: t('email'), href: `mailto:${t('email')}` },
                   ].map(item => (
                     <li key={item.icon} className="flex items-start gap-3">
                       <span className="text-gold flex-shrink-0 mt-0.5 text-base">{item.icon}</span>
                       {item.href ? (
-                        <a href={item.href} className="text-brown-mid hover:text-gold transition-colors">{item.value}</a>
+                        <a
+                          href={item.href}
+                          {...('external' in item && item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                          className={'external' in item && item.external
+                            ? 'font-medium text-gold underline decoration-gold/40 underline-offset-4 hover:decoration-gold transition-colors'
+                            : 'text-brown-mid hover:text-gold transition-colors'}
+                        >
+                          {item.value}{'external' in item && item.external ? ' ↗' : ''}
+                        </a>
                       ) : (
                         <span className="text-brown-mid">{item.value}</span>
                       )}
@@ -180,7 +189,7 @@ export default function ContactPage() {
             <RevealOnScroll direction="right" delay={0.1}>
               <div className="rounded-2xl overflow-hidden shadow-warm-md border border-gold-light">
                 <iframe
-                  src="https://www.google.com/maps?q=Bikfaya+Baptist+Church,+Bikfaya,+Lebanon&output=embed"
+                  src={CHURCH_MAPS_EMBED_URL}
                   width="100%"
                   height="280"
                   style={{ border: 0 }}

@@ -7,6 +7,7 @@ import Accordion from '@/components/Accordion';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import { safeFetch, sanityImageUrl, queries } from '@/lib/sanity-fetch';
 import { churchImages } from '@/lib/church-images';
+import { CHURCH_MAPS_URL, CHURCH_MAPS_EMBED_URL } from '@/lib/church-location';
 import { fallbackServiceTimes } from '@/lib/fallback-data';
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
@@ -68,7 +69,7 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
       ];
 
   const siteSettings = await safeFetch<any>(queries.siteSettings);
-  const mapsUrl = siteSettings?.googleMapsUrl ?? 'https://maps.google.com/?q=Bikfaya,Lebanon';
+  const mapsUrl = siteSettings?.googleMapsUrl ?? CHURCH_MAPS_URL;
 
   return (
     <>
@@ -117,7 +118,7 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
             </RevealOnScroll>
             <RevealOnScroll delay={0.05}>
               <iframe
-                src={siteSettings?.mapEmbedUrl ?? 'https://www.google.com/maps?q=Bikfaya+Baptist+Church,+Bikfaya,+Lebanon&output=embed'}
+                src={siteSettings?.mapEmbedUrl ?? CHURCH_MAPS_EMBED_URL}
                 className="w-full h-80 md:h-full min-h-80 rounded-2xl shadow-warm-md border-0"
                 allowFullScreen
                 loading="lazy"

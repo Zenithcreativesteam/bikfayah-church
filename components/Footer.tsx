@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import CrossIcon from './CrossIcon';
+import { CHURCH_MAPS_URL } from '@/lib/church-location';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -90,9 +91,25 @@ export default function Footer() {
           <div>
             <h4 className="font-serif text-white text-lg mb-5">{t('connect')}</h4>
             <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-2">
-                <span className="text-gold mt-0.5 flex-shrink-0">📍</span>
-                <span className="text-white/60">{t('address')}</span>
+              <li>
+                <a
+                  href={CHURCH_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${t('address')} — ${t('directions')}`}
+                  className="group flex items-center gap-3 rounded-2xl border border-gold/50 bg-white/5 p-3 pr-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold hover:bg-gold/15 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                >
+                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gold text-white shadow-md transition-transform duration-300 group-hover:scale-110">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-white leading-snug">{t('address')}</span>
+                    <span className="mt-1 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-gold group-hover:text-amber-300">
+                      {t('directions')}
+                      <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1">→</span>
+                    </span>
+                  </span>
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-gold flex-shrink-0">📞</span>

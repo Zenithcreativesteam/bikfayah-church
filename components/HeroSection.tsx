@@ -11,6 +11,11 @@ interface HeroSectionProps {
   minHeight?: string;
   backgroundImageUrl?: string;
   overlayOpacity?: number;
+  /** 'cover' fills and crops (default). 'contain' shows the whole photo on desktop,
+   *  with a blurred copy filling the sides; phones still use cover. */
+  imageFit?: 'cover' | 'contain';
+  /** CSS background-position for the cover image, e.g. 'center 30%'. */
+  imagePosition?: string;
 }
 
 export default function HeroSection({
@@ -21,6 +26,8 @@ export default function HeroSection({
   minHeight = 'min-h-[70vh]',
   backgroundImageUrl,
   overlayOpacity = 55,
+  imageFit = 'cover',
+  imagePosition = 'center',
 }: HeroSectionProps) {
   const overlayAlpha = Math.round((overlayOpacity / 100) * 255).toString(16).padStart(2, '0');
 
@@ -34,13 +41,43 @@ export default function HeroSection({
       }}
     >
       {/* Background image */}
-      {backgroundImageUrl && (
+      {backgroundImageUrl && imageFit === 'cover' && (
         <>
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+            className="absolute inset-0 bg-cover bg-no-repeat"
+            style={{ backgroundImage: `url(${backgroundImageUrl})`, backgroundPosition: imagePosition }}
           />
           {/* Dark overlay over image */}
+          <div
+            className="absolute inset-0"
+            style={{ background: `#0D1F3C${overlayAlpha}` }}
+          />
+        </>
+      )}
+
+      {backgroundImageUrl && imageFit === 'contain' && (
+        <>
+          {/* Phones: fill the screen, anchored on the subject */}
+          <div
+            className="absolute inset-0 bg-cover bg-no-repeat md:hidden"
+            style={{ backgroundImage: `url(${backgroundImageUrl})`, backgroundPosition: imagePosition }}
+          />
+          {/* Desktop: blurred copy fills the frame, the full photo sits on top uncropped */}
+          <div
+            className="absolute inset-0 hidden md:block scale-110 bg-cover bg-center bg-no-repeat blur-xl"
+            style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+            aria-hidden="true"
+          />
+          <img
+            src={backgroundImageUrl}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-y-0 left-1/2 hidden md:block h-full max-w-none -translate-x-1/2"
+            style={{
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%)',
+              maskImage: 'linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%)',
+            }}
+          />
           <div
             className="absolute inset-0"
             style={{ background: `#0D1F3C${overlayAlpha}` }}

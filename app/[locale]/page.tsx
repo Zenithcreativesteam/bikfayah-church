@@ -85,6 +85,8 @@ export default async function HomePage({ params: { locale } }: { params: { local
         subtitle={heroSubtitle}
         minHeight="min-h-screen"
         backgroundImageUrl={heroImageUrl}
+        imageFit="contain"
+        imagePosition="center 45%"
         overlayOpacity={cms?.heroOverlayOpacity ?? 55}
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

@@ -14,6 +14,25 @@ export const churchImages = {
   joinUsHero: '/church/church-37.jpg',      // church gate sign
   joinUsFamilies: '/church/church-23.jpg',  // church family gathering
   galleryHero: '/church/church-31.jpg',
+
+  // Photo-led sections
+  welcomeCollage: ['/church/church-60.jpg', '/church/church-21.jpg', '/church/church-32.jpg'],
+  // Service time cards, in the same order as the service times list
+  serviceTimes: ['/church/church-44.jpg', '/church/church-15.jpg', '/church/church-12.jpg', '/church/church-03.jpg'],
+  lifeTogether: ['/church/church-08.jpg', '/church/church-05.jpg', '/church/church-02.jpg', '/church/church-21.jpg', '/church/church-33.jpg', '/church/church-16.jpg'],
+  gospelBand: '/church/church-54.jpg',
+  jesusSteps: '/church/church-56.jpg',
+  pastorBand: '/church/church-64.jpg',
+  youthCollage: ['/church/church-05.jpg', '/church/church-08.jpg', '/church/church-03.jpg'],
+  testimonialsBand: '/church/church-34.jpg',
+  joinUsSunday: '/church/church-60.jpg',
+  joinUsLocation: '/church/church-36.jpg',
+  joinUsFaq: '/church/church-13.jpg',
+  beliefs: '/church/church-48.jpg',
+  contactHero: '/church/church-46.jpg',
+  contactSide: '/church/church-23.jpg',
+  // About > history timeline (buildings and interiors only, not dated events)
+  history: ['/church/church-36.jpg', '/church/church-42.jpg', '/church/church-55.jpg', '/church/church-60.jpg', '/church/church-08.jpg', '/church/church-31.jpg'],
 };
 
 export const galleryPhotos: ChurchPhoto[] = [

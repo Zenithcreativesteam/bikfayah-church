@@ -46,11 +46,15 @@ function CommunityContent({ locale }: { locale: string }) {
             </div>
           </RevealOnScroll>
           <RevealOnScroll direction="right" delay={0.1}>
-            <img
-              src={churchImages.communityYouth}
-              alt={locale === 'ar' ? 'شباب الكنيسة في رحلة' : 'Church youth on a hike'}
-              className="rounded-3xl h-64 w-full object-cover shadow-warm-lg"
-            />
+            <div className="grid grid-cols-2 grid-rows-2 gap-3 h-[26rem] md:h-[30rem]">
+              <img
+                src={churchImages.youthCollage[0]}
+                alt={locale === 'ar' ? 'شباب الكنيسة في رحلة' : 'Church youth on a hike'}
+                className="row-span-2 h-full w-full rounded-3xl object-cover shadow-warm-lg"
+              />
+              <img src={churchImages.youthCollage[1]} alt={locale === 'ar' ? 'مجموعة الشباب' : 'Youth group'} loading="lazy" className="h-full w-full rounded-3xl object-cover shadow-warm-md" />
+              <img src={churchImages.youthCollage[2]} alt={locale === 'ar' ? 'سهرة ألعاب للشباب' : 'Youth game night'} loading="lazy" className="h-full w-full rounded-3xl object-cover shadow-warm-md" />
+            </div>
           </RevealOnScroll>
         </div>
       </section>
@@ -60,10 +64,10 @@ function CommunityContent({ locale }: { locale: string }) {
         <div className="container-church grid md:grid-cols-2 gap-12 items-center">
           <RevealOnScroll direction="left">
             <div
-              className="rounded-3xl h-64 flex items-center justify-center shadow-warm-lg order-2 md:order-1 bg-cover bg-center"
-              style={{ backgroundImage: `linear-gradient(rgba(15,32,68,0.7), rgba(15,32,68,0.7)), url(${churchImages.communityBible})` }}
+              className="rounded-3xl h-80 md:h-[26rem] flex items-end justify-start shadow-warm-lg order-2 md:order-1 bg-cover bg-center"
+              style={{ backgroundImage: `linear-gradient(to top, rgba(15,32,68,0.9), rgba(15,32,68,0.15) 65%), url(${churchImages.communityBible})` }}
             >
-              <p className="font-serif text-white italic text-xl px-8 text-center">
+              <p className="font-serif text-white italic text-2xl p-8">
                 "Your word is a lamp to my feet"
                 <span className="block text-gold text-sm mt-2 not-italic tracking-widest uppercase text-xs">Psalm 119:105</span>
               </p>
@@ -79,12 +83,15 @@ function CommunityContent({ locale }: { locale: string }) {
       </section>
 
       {/* Testimonials */}
-      <section className="section-warm">
+      <section
+        className="py-24 px-4 bg-cover bg-center"
+        style={{ backgroundImage: `linear-gradient(rgba(15,32,68,0.88), rgba(15,32,68,0.88)), url(${churchImages.testimonialsBand})` }}
+      >
         <div className="container-church">
           <RevealOnScroll>
-            <SectionHeader label={t('testimonialsLabel')} title={t('testimonialsTitle')} />
+            <SectionHeader label={t('testimonialsLabel')} title={t('testimonialsTitle')} light />
           </RevealOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {fallbackTestimonials.map((testimonial, i) => (
               <RevealOnScroll key={testimonial._id} delay={i * 0.1}>
                 <TestimonialCard testimonial={testimonial} locale={locale} />

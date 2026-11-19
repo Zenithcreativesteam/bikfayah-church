@@ -87,13 +87,8 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
           {/* Sunday Morning — featured prominently */}
           {serviceTimes[0] && (
             <RevealOnScroll>
-              <div className="max-w-sm mx-auto mb-8">
-                <div className="bg-white rounded-2xl p-10 text-center shadow-warm-md border-2 border-gold">
-                  <h3 className="font-serif text-2xl text-brown-deep mb-3 leading-tight">{serviceTimes[0].title}</h3>
-                  <div className="w-16 h-0.5 mx-auto mb-3" style={{ background: 'linear-gradient(90deg, transparent, #B8860B, transparent)' }} />
-                  <p className="font-serif text-4xl font-semibold text-gold mb-3">{serviceTimes[0].time}</p>
-                  {serviceTimes[0].note && <p className="text-brown-muted text-sm">{serviceTimes[0].note}</p>}
-                </div>
+              <div className="mb-5">
+                <ServiceTimeCard featured title={serviceTimes[0].title} time={serviceTimes[0].time} note={serviceTimes[0].note} image={churchImages.joinUsSunday} />
               </div>
             </RevealOnScroll>
           )}
@@ -101,7 +96,7 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {serviceTimes.slice(1).map((s, i) => (
               <RevealOnScroll key={s.title} delay={i * 0.08}>
-                <ServiceTimeCard title={s.title} time={s.time} note={s.note} />
+                <ServiceTimeCard title={s.title} time={s.time} note={s.note} image={churchImages.serviceTimes[i + 1]} />
               </RevealOnScroll>
             ))}
           </div>
@@ -112,15 +107,23 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
       <section className="section-parchment">
         <div className="container-church">
           <RevealOnScroll><SectionHeader label={t('locationLabel')} title={t('locationTitle')} /></RevealOnScroll>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-5">
             <RevealOnScroll direction="left">
-              {siteSettings?.mapEmbedUrl ? (
-                <iframe src={siteSettings.mapEmbedUrl} className="w-full h-64 rounded-2xl shadow-warm-md border-0" allowFullScreen loading="lazy" title="Church location" />
-              ) : (
-                <div className="rounded-2xl h-64 flex items-center justify-center shadow-warm-md" style={{ background: 'linear-gradient(135deg, #EAF0FA, #E8D9A0)' }}>
-                  <div className="text-center"><p className="text-5xl mb-3">🗺</p><p className="text-brown-mid font-serif text-lg">Bikfaya, Lebanon</p><p className="text-brown-muted text-sm">Mount Lebanon Governorate</p></div>
-                </div>
-              )}
+              <div className="relative h-80 md:h-full min-h-80 overflow-hidden rounded-2xl shadow-warm-md">
+                <img src={churchImages.joinUsLocation} alt={ar ? 'مدخل الكنيسة' : 'Church entrance'} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,32,68,0.85), transparent 60%)' }} />
+                <p className="absolute bottom-5 left-5 right-5 font-serif text-xl text-white">{ar ? 'نراك عند البوابة' : 'See you at the gate'}</p>
+              </div>
+            </RevealOnScroll>
+            <RevealOnScroll delay={0.05}>
+              <iframe
+                src={siteSettings?.mapEmbedUrl ?? 'https://www.google.com/maps?q=Bikfaya+Baptist+Church,+Bikfaya,+Lebanon&output=embed'}
+                className="w-full h-80 md:h-full min-h-80 rounded-2xl shadow-warm-md border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Church location"
+              />
             </RevealOnScroll>
             <RevealOnScroll direction="right" delay={0.1}>
               <div className="card-warm h-full flex flex-col justify-center">
@@ -155,9 +158,20 @@ export default async function JoinUsPage({ params: { locale } }: { params: { loc
 
       {/* FAQ */}
       <section className="section-parchment">
-        <div className="container-church max-w-3xl">
-          <RevealOnScroll><SectionHeader label={t('faqLabel')} title={t('faqTitle')} /></RevealOnScroll>
-          <RevealOnScroll delay={0.1}><Accordion items={faqItems} /></RevealOnScroll>
+        <div className="container-church grid gap-10 md:grid-cols-5 md:items-start">
+          <RevealOnScroll direction="left" className="md:col-span-2 md:sticky md:top-28">
+            <div className="relative overflow-hidden rounded-3xl shadow-warm-lg h-80 md:h-[32rem]">
+              <img src={churchImages.joinUsFaq} alt={ar ? 'استقبال عند باب الكنيسة' : 'Welcome at the church door'} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,32,68,0.85), transparent 55%)' }} />
+              <p className="absolute bottom-6 left-6 right-6 font-serif text-2xl text-white leading-snug">
+                {ar ? 'أول زيارة؟ يسعدنا أن نرحّب بك.' : 'First visit? We would love to welcome you.'}
+              </p>
+            </div>
+          </RevealOnScroll>
+          <div className="md:col-span-3">
+            <RevealOnScroll><SectionHeader label={t('faqLabel')} title={t('faqTitle')} centered={false} /></RevealOnScroll>
+            <RevealOnScroll delay={0.1}><Accordion items={faqItems} /></RevealOnScroll>
+          </div>
         </div>
       </section>
     </>

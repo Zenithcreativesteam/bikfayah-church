@@ -66,10 +66,22 @@ export default function AboutPage() {
       <AnimatePresence mode="wait">
         {activeTab === 'beliefs' && (
           <motion.section key="beliefs" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="section-warm">
-            <div className="container-church max-w-4xl">
-              <RevealOnScroll><SectionHeader label={t('beliefsLabel')} title={t('beliefsTitle')} /></RevealOnScroll>
-              <RevealOnScroll delay={0.05}><p className="text-brown-mid text-lg text-center mb-10">{t('beliefsIntro')}</p></RevealOnScroll>
-              <RevealOnScroll delay={0.1}><Accordion items={confessionChapters} /></RevealOnScroll>
+            <div className="container-church grid gap-10 md:grid-cols-5 md:items-start">
+              <RevealOnScroll direction="left" className="md:col-span-2 md:sticky md:top-28">
+                <div className="relative overflow-hidden rounded-3xl shadow-warm-lg h-72 md:h-[34rem]">
+                  <img src={churchImages.beliefs} alt={locale === 'ar' ? 'قراءة الكتاب المقدس في الكنيسة' : 'Scripture reading at Bikfaya Baptist Church'} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,32,68,0.9), rgba(15,32,68,0.1) 60%)' }} />
+                  <p className="absolute bottom-0 left-0 right-0 p-8 font-serif text-2xl italic text-white leading-snug">
+                    {locale === 'ar' ? '«كلامك سراج لرجلي ونور لسبيلي»' : '“Your word is a lamp to my feet and a light to my path.”'}
+                    <span className="mt-2 block font-sans text-xs not-italic tracking-widest uppercase text-amber-300">{locale === 'ar' ? 'مزمور ١١٩: ١٠٥' : 'Psalm 119:105'}</span>
+                  </p>
+                </div>
+              </RevealOnScroll>
+              <div className="md:col-span-3">
+                <RevealOnScroll><SectionHeader label={t('beliefsLabel')} title={t('beliefsTitle')} centered={false} /></RevealOnScroll>
+                <RevealOnScroll delay={0.05}><p className="text-brown-mid text-lg mb-10">{t('beliefsIntro')}</p></RevealOnScroll>
+                <RevealOnScroll delay={0.1}><Accordion items={confessionChapters} /></RevealOnScroll>
+              </div>
             </div>
           </motion.section>
         )}
@@ -189,7 +201,7 @@ export default function AboutPage() {
         )}
         {activeTab === 'history' && (
           <motion.section key="history" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="section-warm">
-            <div className="container-church max-w-4xl">
+            <div className="container-church max-w-5xl">
               <RevealOnScroll><SectionHeader label={t('historyLabel')} title={t('historyTitle')} /></RevealOnScroll>
               {/* Timeline with centered spine */}
               <div className="relative">
@@ -210,8 +222,15 @@ export default function AboutPage() {
                             <span className="font-serif text-base font-bold text-center leading-tight">{item.year}</span>
                           </div>
                         </div>
-                        {/* Empty space on the other side (desktop) */}
-                        <div className="flex-1 hidden md:block" />
+                        {/* Photo on the other side (desktop) */}
+                        <div className="flex-1 hidden md:block">
+                          <img
+                            src={churchImages.history[i % churchImages.history.length]}
+                            alt=""
+                            loading="lazy"
+                            className="h-44 w-full rounded-2xl object-cover shadow-warm-md"
+                          />
+                        </div>
                       </div>
                     </RevealOnScroll>
                   ))}

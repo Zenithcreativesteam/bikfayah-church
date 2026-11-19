@@ -6,7 +6,7 @@ import HeroSection from '@/components/HeroSection';
 import VerseMarquee from '@/components/VerseMarquee';
 import SectionHeader from '@/components/SectionHeader';
 import SermonCard from '@/components/SermonCard';
-import MinistryCard from '@/components/MinistryCard';
+import PhotoMosaic from '@/components/PhotoMosaic';
 import ServiceTimeCard from '@/components/ServiceTimeCard';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import VerseBlock from '@/components/VerseBlock';
@@ -113,7 +113,11 @@ export default async function HomePage({ params: { locale } }: { params: { local
           </RevealOnScroll>
           <RevealOnScroll direction="right" delay={0.15}>
             {welcomeImageUrl ? (
-              <img src={welcomeImageUrl} alt="Bikfaya Baptist Church sanctuary" className="rounded-3xl shadow-warm-lg w-full h-80 object-cover" />
+              <div className="grid grid-cols-5 grid-rows-2 gap-3 h-[26rem] md:h-[30rem]">
+                <img src={welcomeImageUrl} alt="Bikfaya Baptist Church sanctuary" className="col-span-3 row-span-2 h-full w-full rounded-3xl object-cover shadow-warm-lg" />
+                <img src={churchImages.welcomeCollage[1]} alt="Church family" loading="lazy" className="col-span-2 h-full w-full rounded-3xl object-cover shadow-warm-md" />
+                <img src={churchImages.welcomeCollage[2]} alt="Congregation in front of the church" loading="lazy" className="col-span-2 h-full w-full rounded-3xl object-cover shadow-warm-md" />
+              </div>
             ) : (
               <div className="relative rounded-3xl overflow-hidden shadow-warm-lg flex items-center justify-center min-h-80" style={{ background: 'linear-gradient(135deg, #0F2044, #1B3A6B)' }}>
                 <div className="text-center p-10 text-blue-100">
@@ -144,16 +148,28 @@ export default async function HomePage({ params: { locale } }: { params: { local
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {serviceTimes.map((s, i) => (
               <RevealOnScroll key={s.title} delay={i * 0.08}>
-                <ServiceTimeCard title={s.title} time={s.time} note={s.note} icon={s.icon} />
+                <ServiceTimeCard title={s.title} time={s.time} note={s.note} icon={s.icon} image={churchImages.serviceTimes[i % churchImages.serviceTimes.length]} />
               </RevealOnScroll>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ── Life Together ── */}
+      <section className="section-warm">
+        <div className="container-church">
+          <RevealOnScroll><SectionHeader label={t('lifeLabel')} title={t('lifeTitle')} subtitle={t('lifeText')} /></RevealOnScroll>
+          <RevealOnScroll delay={0.1}>
+            <PhotoMosaic images={churchImages.lifeTogether} alt="Bikfaya Baptist Church family" ctaHref={`/${locale}/gallery`} ctaLabel={t('lifeCta')} />
+          </RevealOnScroll>
+        </div>
+      </section>
+
       {/* ── Gospel CTA ── */}
-      <section className="py-24 px-6 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0F2044 0%, #1B3A6B 100%)' }}>
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #B8860B 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+      <section
+        className="py-28 px-6 relative overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `linear-gradient(135deg, rgba(15,32,68,0.92) 0%, rgba(27,58,107,0.82) 100%), url(${churchImages.gospelBand})` }}
+      >
         <div className="container-church relative z-10 text-center">
           <RevealOnScroll>
             <p className="label-gold text-amber-400 mb-4">{t('gospelLabel')}</p>

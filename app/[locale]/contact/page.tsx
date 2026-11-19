@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import HeroSection from '@/components/HeroSection';
 import SectionHeader from '@/components/SectionHeader';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import { churchImages } from '@/lib/church-images';
 
 type FormState = 'idle' | 'sending' | 'success' | 'error';
 
@@ -35,7 +36,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <HeroSection label={t('heroLabel')} title={t('heroTitle')} subtitle={t('heroSubtitle')} minHeight="min-h-[60vh]" />
+      <HeroSection label={t('heroLabel')} title={t('heroTitle')} subtitle={t('heroSubtitle')} minHeight="min-h-[60vh]" backgroundImageUrl={churchImages.contactHero} />
 
       <section className="section-warm">
         <div className="container-church grid lg:grid-cols-3 gap-10">
@@ -145,6 +146,15 @@ export default function ContactPage() {
           {/* Info sidebar */}
           <div className="space-y-5">
             <RevealOnScroll direction="right">
+              <div className="relative h-64 overflow-hidden rounded-2xl shadow-warm-md">
+                <img src={churchImages.contactSide} alt={locale === 'ar' ? 'عائلة الكنيسة' : 'Church family'} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,32,68,0.85), transparent 60%)' }} />
+                <p className="absolute bottom-5 left-5 right-5 font-serif text-xl text-white">
+                  {locale === 'ar' ? 'يسعدنا أن نسمع منك' : 'We would love to hear from you'}
+                </p>
+              </div>
+            </RevealOnScroll>
+            <RevealOnScroll direction="right" delay={0.05}>
               <div className="card-warm">
                 <h3 className="font-serif text-xl text-brown-deep mb-5">{t('infoTitle')}</h3>
                 <ul className="space-y-4 text-sm">

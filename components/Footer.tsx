@@ -109,7 +109,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-blue-200/50 text-xs text-center">
-            {t('rights').replace('{year}', String(year))}
+            {t('rights', { year: String(year) })}
           </p>
           <p className="text-blue-200/40 text-xs italic font-serif">
             "To God alone be the glory"

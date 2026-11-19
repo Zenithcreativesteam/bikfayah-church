@@ -49,23 +49,26 @@ export default async function JesusPage({ params: { locale } }: { params: { loca
 
       {/* Who is Jesus */}
       <section className="section-warm">
-        <div className="container-church max-w-4xl">
-          <RevealOnScroll>
-            <SectionHeader label={t('whoLabel')} title={(ar ? cms?.whoTitleAr : cms?.whoTitle) ?? t('whoTitle')} />
-          </RevealOnScroll>
+        <div className="container-church grid gap-10 md:grid-cols-2 md:items-center">
           {whoImageUrl && (
-            <RevealOnScroll delay={0.05}>
-              <img src={whoImageUrl} alt="Who is Jesus" className="w-full rounded-2xl shadow-warm-lg mb-8 max-h-80 object-cover" />
+            <RevealOnScroll direction="left">
+              <div className="relative isolate">
+                <img src={whoImageUrl} alt={ar ? 'الوعظ في الكنيسة' : 'Preaching at Bikfaya Baptist Church'} className="w-full h-80 md:h-[34rem] rounded-3xl object-cover shadow-warm-lg" />
+                <div className="hidden md:block absolute -bottom-6 -right-6 h-32 w-32 rounded-3xl -z-10" style={{ background: 'linear-gradient(135deg, #B8860B, #D4A853)' }} />
+              </div>
             </RevealOnScroll>
           )}
-          <RevealOnScroll delay={0.1}>
-            <p className="text-brown-mid text-lg leading-relaxed text-center mb-10">
-              {(ar ? cms?.whoTextAr : cms?.whoText) ?? t('whoText')}
-            </p>
-            <VerseBlock
-              verse={(ar ? cms?.verseJohnAr : cms?.verseJohn) ?? t('verseJohn')}
-              reference={t('verseJohnRef')}
-            />
+          <RevealOnScroll direction="right" delay={0.1}>
+            <div>
+              <SectionHeader label={t('whoLabel')} title={(ar ? cms?.whoTitleAr : cms?.whoTitle) ?? t('whoTitle')} centered={false} />
+              <p className="text-brown-mid text-lg leading-relaxed mb-8">
+                {(ar ? cms?.whoTextAr : cms?.whoText) ?? t('whoText')}
+              </p>
+              <VerseBlock
+                verse={(ar ? cms?.verseJohnAr : cms?.verseJohn) ?? t('verseJohn')}
+                reference={t('verseJohnRef')}
+              />
+            </div>
           </RevealOnScroll>
         </div>
       </section>
@@ -73,27 +76,36 @@ export default async function JesusPage({ params: { locale } }: { params: { loca
       {/* Gospel steps */}
       <section className="section-parchment">
         <div className="container-church">
-          <RevealOnScroll><SectionHeader label={t('gospelLabel')} title={t('gospelTitle')} /></RevealOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {steps.map((step: any, i: number) => (
-              <RevealOnScroll key={i} delay={i * 0.1}>
-                <div className="card-warm h-full">
-                  <div className="flex items-start gap-4 mb-3">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 shadow-warm-sm" style={{ background: 'linear-gradient(135deg, #EAF0FA, #D8E4F5)', border: '1px solid rgba(184,134,11,0.2)' }}>
-                      {step.icon}
-                    </div>
-                    <div className="pt-2">
-                      <span className="label-gold text-xs mb-1 block">Step {i + 1}</span>
-                      <h3 className="font-serif text-xl text-brown-deep">{step.title}</h3>
-                    </div>
-                  </div>
-                  <p className="text-brown-mid leading-relaxed">{step.text}</p>
+          <div className="grid gap-10 md:grid-cols-5 md:items-start">
+            <RevealOnScroll direction="left" className="md:col-span-2 md:sticky md:top-28">
+              <div className="relative overflow-hidden rounded-3xl shadow-warm-lg h-72 md:h-[36rem]">
+                <img src={churchImages.jesusSteps} alt={ar ? 'المنبر في الكنيسة' : 'The pulpit at Bikfaya Baptist Church'} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,32,68,0.9), rgba(15,32,68,0.1) 60%)' }} />
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <p className="label-gold text-amber-300 mb-2">{t('gospelLabel')}</p>
+                  <h2 className="font-serif text-3xl md:text-4xl text-white leading-tight">{t('gospelTitle')}</h2>
                 </div>
-              </RevealOnScroll>
-            ))}
+              </div>
+            </RevealOnScroll>
+            <ol className="md:col-span-3 space-y-4">
+              {steps.map((step: any, i: number) => (
+                <RevealOnScroll key={i} delay={i * 0.08}>
+                  <li className="relative flex gap-6 overflow-hidden rounded-2xl bg-white p-6 md:p-8 shadow-warm border border-gold-light">
+                    <span className="font-serif text-6xl md:text-7xl font-semibold leading-none text-gold/25 select-none" aria-hidden="true">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <span className="label-gold text-xs mb-1 block">{ar ? `الخطوة ${i + 1}` : `Step ${i + 1}`}</span>
+                      <h3 className="font-serif text-2xl text-brown-deep mb-2">{step.title}</h3>
+                      <p className="text-brown-mid leading-relaxed">{step.text}</p>
+                    </div>
+                  </li>
+                </RevealOnScroll>
+              ))}
+            </ol>
           </div>
           <RevealOnScroll delay={0.2}>
-            <div className="max-w-4xl mx-auto mt-10">
+            <div className="mt-10">
               <VerseBlock
                 verse={(ar ? cms?.verseGospelAr : cms?.verseGospel) ?? t('verseRomans')}
                 reference={t('verseRomansRef')}
@@ -104,7 +116,10 @@ export default async function JesusPage({ params: { locale } }: { params: { loca
       </section>
 
       {/* Talk to a Pastor */}
-      <section className="section-parchment-deep" style={{ background: 'linear-gradient(135deg, #0F2044 0%, #1B3A6B 100%)' }}>
+      <section
+        className="py-28 px-4 bg-cover bg-center"
+        style={{ backgroundImage: `linear-gradient(135deg, rgba(15,32,68,0.92) 0%, rgba(27,58,107,0.85) 100%), url(${churchImages.pastorBand})` }}
+      >
         <div className="container-church max-w-3xl text-center">
           <RevealOnScroll>
             <p className="label-gold text-amber-400 mb-4">{ar ? 'الخطوة التالية' : 'Next Step'}</p>

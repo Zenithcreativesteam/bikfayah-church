@@ -9,7 +9,7 @@ export const churchImages = {
   jesusWho: '/church/church-61.jpg',        // preaching
   communityHero: '/church/church-06.jpg',   // church hike
   communityYouth: '/church/church-05.jpg',  // youth hike
-  communityBible: '/church/church-12.jpg',  // Bible study
+  communityBible: '/church/church-61.jpg',  // Bible study: pastor teaching in church
   sermonsHero: '/church/church-49.jpg',     // Sunday sermon
   joinUsHero: '/church/church-37.jpg',      // church gate sign
   joinUsFamilies: '/church/church-23.jpg',  // church family gathering

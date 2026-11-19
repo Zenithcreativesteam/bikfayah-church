@@ -115,10 +115,6 @@ export default function Footer() {
                 <span className="text-gold flex-shrink-0">📞</span>
                 <a href={CHURCH_PHONE_TEL} className="text-white/60 hover:text-white transition-colors">{t('phone')}</a>
               </li>
-              <li className="flex items-center gap-2">
-                <span className="text-gold flex-shrink-0">✉</span>
-                <a href={`mailto:${t('email')}`} className="text-white/60 hover:text-white transition-colors">{t('email')}</a>
-              </li>
             </ul>
           </div>
         </div>

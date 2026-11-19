@@ -15,6 +15,13 @@
     scroll-behavior: smooth;
   }
 
+  /* Never allow sideways scrolling (slide-in animations start off-screen).
+     'clip' instead of 'hidden' so position: sticky keeps working. */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-warm-white text-brown-deep font-sans antialiased;
   }

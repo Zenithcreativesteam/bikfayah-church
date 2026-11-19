@@ -69,7 +69,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop nav links */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-1">
               {navKeys.map(key => (
                 <Link
                   key={key}
@@ -88,7 +88,7 @@ export default function Navbar() {
             </div>
 
             {/* Right side */}
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-3">
               <button
                 onClick={switchLocale}
                 className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
@@ -109,7 +109,7 @@ export default function Navbar() {
 
             {/* Mobile hamburger */}
             <button
-              className="md:hidden flex flex-col gap-1.5 p-2"
+              className="lg:hidden flex flex-col gap-1.5 p-2"
               onClick={() => setMobileOpen(v => !v)}
               aria-label="Toggle menu"
             >
